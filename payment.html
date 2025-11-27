@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - HireMediaMind</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#06B6D4',
+                        accent: '#10B981'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <!-- Currency Converter -->
+    <script src="js/currency-converter.js" defer></script>
+    
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4">
+            <a href="/" class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">HM</span>
+                </div>
+                <span class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">HireMediaMind</span>
+            </a>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-12 max-w-3xl">
+        
+        <!-- Payment Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Complete Your Payment</h1>
+            <p class="text-gray-600">Secure payment processing via Razorpay</p>
+        </div>
+        
+        <!-- Plan Info Card -->
+        <div id="planInfo" class="bg-white rounded-2xl shadow-lg p-6 mb-6 border-2 border-primary">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2" id="planName">Starter Plan</h2>
+                    <p class="text-gray-600" id="planDescription">Basic Ad Management & Weekly Reports</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-gray-500 mb-1">Total Amount</p>
+                    <p class="text-3xl font-bold text-primary" id="planPrice">$500</p>
+                    <p class="text-sm text-gray-500" id="planCurrency">USD /month</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Payment Form -->
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            
+            <!-- Trust Badges -->
+            <div class="flex justify-center items-center space-x-6 mb-8 pb-8 border-b">
+                <div class="flex items-center space-x-2 text-gray-600">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-sm">SSL Secured</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-600">
+                    <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                    </svg>
+                    <span class="text-sm">Razorpay Protected</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-600">
+                    <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-sm">RBI Compliant</span>
+                </div>
+            </div>
+            
+            <form id="paymentForm" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                        <input type="text" id="customerName" required 
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
+                               placeholder="John Smith">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                        <input type="email" id="customerEmail" required 
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
+                               placeholder="john@company.com">
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                        <input type="tel" id="customerPhone" required 
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
+                               placeholder="+1 234 567 8900">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                        <input type="text" id="companyName" 
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
+                               placeholder="Your Company">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Payment Type *</label>
+                    <select id="paymentType" required 
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none">
+                        <option value="first-month">First Month Payment</option>
+                        <option value="deposit">Initial Deposit (30-40%)</option>
+                        <option value="milestone">Milestone Payment</option>
+                        <option value="retainer">Monthly Retainer</option>
+                    </select>
+                </div>
+                
+                <!-- Amount Display (converted to INR for Razorpay) -->
+                <div class="bg-gray-50 rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-600">Amount in your currency:</span>
+                        <span class="text-xl font-bold text-gray-900" id="displayAmount">$500</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Amount in INR (for payment):</span>
+                        <span class="text-lg font-semibold text-primary" id="inrAmount">₹41,500</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">* Razorpay processes payments in INR. Amount converted at current exchange rate.</p>
+                </div>
+                
+                <!-- Payment Button -->
+                <button type="submit" id="payBtn" 
+                        class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
+                    💳 Pay Securely with Razorpay
+                </button>
+                
+                <!-- Alternative Payment Options -->
+                <div class="text-center pt-4 border-t">
+                    <p class="text-sm text-gray-600 mb-3">Prefer other payment methods?</p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <a href="https://wa.me/918429889303?text=Hi,%20I%27d%20like%20to%20discuss%20payment%20options%20for%20the%20plan." 
+                           target="_blank"
+                           class="inline-flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            <span>Pay via WhatsApp</span>
+                        </a>
+                        <a href="mailto:hello@hiremediamind.com?subject=Payment%20Inquiry" 
+                           class="inline-flex items-center justify-center space-x-2 bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>Request Invoice</span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Security Note -->
+            <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <p class="text-sm text-green-800">
+                    <strong>🔒 Your payment is secure:</strong> All transactions are processed through Razorpay's PCI-DSS compliant payment gateway. Your card details are never stored on our servers.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Support -->
+        <div class="text-center mt-8">
+            <p class="text-gray-600 mb-2">Need help with your payment?</p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://wa.me/918429889303" class="text-green-600 hover:underline font-medium">WhatsApp Support</a>
+                <span class="text-gray-300">|</span>
+                <a href="mailto:hello@hiremediamind.com" class="text-primary hover:underline font-medium">Email Support</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Get plan info from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan') || 'starter';
+        let currency = urlParams.get('currency');
+        
+        // If no currency in URL, try to get from localStorage or detect
+        if (!currency) {
+            currency = localStorage.getItem('preferredCurrency') || 'USD';
+        }
+        
+        // If still no currency, try to detect from location
+        if (!currency || currency === 'USD') {
+            // Try to detect from browser/API
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const countryToCurrency = {
+                        'US': 'USD', 'GB': 'GBP', 'AE': 'AED', 'SG': 'SGD',
+                        'AU': 'AUD', 'IN': 'INR', 'DE': 'EUR', 'FR': 'EUR',
+                        'NL': 'EUR', 'PL': 'EUR'
+                    };
+                    const detectedCurrency = countryToCurrency[data.country_code] || 'USD';
+                    if (detectedCurrency !== currency) {
+                        currency = detectedCurrency;
+                        initPaymentPage(); // Re-initialize with detected currency
+                    }
+                })
+                .catch(() => {
+                    // If detection fails, use USD
+                    currency = currency || 'USD';
+                });
+        }
+        
+        // Plan configurations
+        const plans = {
+            starter: {
+                name: 'Starter Plan',
+                description: 'Basic Ad Management & Weekly Reports',
+                usdPrice: 500,
+                features: ['Basic Ad Management', 'Weekly Performance Reports', 'Basic Tracking Setup']
+            },
+            growth: {
+                name: 'Growth Plan',
+                description: 'Advanced Ad Management & AI Automation',
+                usdPrice: 1200,
+                features: ['Advanced Ad Management', 'AI Automation Workflows', 'Daily Optimization', 'Comprehensive Analytics']
+            },
+            premium: {
+                name: 'Premium Plan',
+                description: 'Enterprise Ad Management & Custom AI Solutions',
+                usdPrice: 3000,
+                features: ['Enterprise Ad Management', 'Custom AI Solutions', 'Dedicated Account Manager', '24/7 Priority Support']
+            }
+        };
+        
+        // Currency rates (same as currency-converter.js)
+        const currencyRates = {
+            USD: 1.0,
+            GBP: 0.79,
+            EUR: 0.92,
+            AED: 3.67,
+            SGD: 1.34,
+            AUD: 1.52,
+            INR: 83.0
+        };
+        
+        const currencySymbols = {
+            USD: '$',
+            GBP: '£',
+            EUR: '€',
+            AED: 'AED ',
+            SGD: 'S$',
+            AUD: 'A$',
+            INR: '₹'
+        };
+        
+        // Initialize page
+        function initPaymentPage() {
+            const selectedPlan = plans[plan] || plans.starter;
+            const rate = currencyRates[currency] || 1.0;
+            const symbol = currencySymbols[currency] || '$';
+            
+            // Calculate prices
+            const priceInCurrency = Math.round(selectedPlan.usdPrice * rate);
+            const priceInINR = Math.round(selectedPlan.usdPrice * currencyRates.INR);
+            
+            // Update UI
+            document.getElementById('planName').textContent = selectedPlan.name;
+            document.getElementById('planDescription').textContent = selectedPlan.description;
+            document.getElementById('planPrice').textContent = symbol + priceInCurrency.toLocaleString();
+            document.getElementById('planCurrency').textContent = currency + ' /month';
+            document.getElementById('displayAmount').textContent = symbol + priceInCurrency.toLocaleString();
+            document.getElementById('inrAmount').textContent = '₹' + priceInINR.toLocaleString();
+            
+            // Store for payment
+            window.paymentAmount = priceInINR; // Always use INR for Razorpay
+            window.planInfo = selectedPlan;
+        }
+        
+        // Handle form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+            const phone = document.getElementById('customerPhone').value;
+            const company = document.getElementById('companyName').value || 'N/A';
+            const paymentType = document.getElementById('paymentType').value;
+            
+            // Razorpay Options
+            var options = {
+                // REPLACE WITH YOUR ACTUAL RAZORPAY KEY ID
+                "key": "rzp_live_Ri7PMF879mDGn1", // Get from Razorpay Dashboard > Settings > API Keys
+                "amount": window.paymentAmount * 100, // Amount in paise (INR)
+                "currency": "INR",
+                "name": "HireMediaMind",
+                "description": window.planInfo.name + " - " + paymentType,
+                "image": "https://www.hiremediamind.com/logo.png",
+                "handler": function (response){
+                    // Payment successful
+                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                    
+                    // Redirect to thank you page
+                    window.location.href = '/thank-you.html?payment_id=' + response.razorpay_payment_id + '&plan=' + plan;
+                },
+                "prefill": {
+                    "name": name,
+                    "email": email,
+                    "contact": phone
+                },
+                "notes": {
+                    "plan": plan,
+                    "payment_type": paymentType,
+                    "company": company
+                },
+                "theme": {
+                    "color": "#7C3AED"
+                },
+                "modal": {
+                    "ondismiss": function(){
+                        console.log('Payment cancelled');
+                    }
+                }
+            };
+            
+            var rzp = new Razorpay(options);
+            rzp.open();
+        });
+        
+        // Initialize on page load
+        initPaymentPage();
+    </script>
+</body>
+</html>
+

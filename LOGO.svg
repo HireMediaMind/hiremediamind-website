@@ -1,0 +1,16 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">HireMediaMind Logo</title>
+  <desc id="logoDesc">Rounded rectangle with gradient background and white HM monogram</desc>
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="50%" stop-color="#5B21B6"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="116" height="36" rx="12" fill="url(#logoGradient)"/>
+  <path d="M32 28V12h5.5l5 9.4V12h5.5v16h-5.5l-5-9.4V28H32zm28.5.3c-5.2 0-9.3-4-9.3-8.9 0-4.8 4.1-8.9 9.3-8.9 5.2 0 9.3 4.1 9.3 8.9 0 4.9-4.1 8.9-9.3 8.9zm0-5c2.1 0 3.7-1.7 3.7-3.9s-1.6-3.9-3.7-3.9-3.7 1.7-3.7 3.9 1.6 3.9 3.7 3.9z" fill="#fff"/>
+</svg>
+
+
+

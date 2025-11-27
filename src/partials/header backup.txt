@@ -1,0 +1,58 @@
+<header class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">HM</span>
+                </div>
+                <span class="text-xl font-bold gradient-text">HireMediaMind</span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="text-gray-600 hover:text-primary font-medium transition-colors">Services</a>
+                <a href="#process" class="text-gray-600 hover:text-primary font-medium transition-colors">Process</a>
+                <a href="#results" class="text-gray-600 hover:text-primary font-medium transition-colors">Results</a>
+                <a href="#pricing" class="text-gray-600 hover:text-primary font-medium transition-colors">Pricing</a>
+                <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                <a href="/blog" class="text-gray-600 hover:text-primary font-medium transition-colors">Blog</a>
+                    Get Free Audit
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button md:hidden text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 bg-white z-50 md:hidden">
+        <div class="p-6 space-y-6 h-full">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg"></div>
+                    <span class="text-xl font-bold gradient-text">HireMediaMind</span>
+                </div>
+                <button class="close-mobile-menu text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav class="space-y-4">
+                <a href="#services" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors">Services</a>
+                <a href="#process" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors">Process</a>
+                <a href="#results" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors">Results</a>
+                <a href="#pricing" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors">Pricing</a>
+                <a href="#contact" class="block bg-primary text-white px-6 py-3 rounded-lg text-center font-medium mt-4">
+                    Get Free Audit
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>

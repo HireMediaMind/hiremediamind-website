@@ -1,0 +1,435 @@
+/* =========================================================
+   GLOBAL STYLES
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+/* Glass UI */
+.glass {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #7C3AED, #06B6D4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hover Elevation */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu {
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-100%);
+    display: block !important;
+}
+
+.mobile-menu.menu-open {
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   ANIMATIONS (Used globally — safe and conflict-free)
+   ========================================================= */
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HERO SECTION — FINAL CLEAN VERSION
+   ========================================================= */
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #111827, #4b0082);
+    padding-top: 90px;
+    padding-bottom: 25px;
+    min-height: 320px;
+}
+
+/* Video */
+.hero-video-left video,
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text Block */
+.hero-content {
+    color: white;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.7rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #d7e5ff;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-bottom: 1.2rem;
+}
+
+/* CTA */
+.hero-cta {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 8px;
+    background: white;
+    color: #5b21b6;
+    font-weight: 600;
+    transition: all .2s ease;
+}
+
+.hero-cta:hover {
+    background: #f0f0f0;
+}
+
+
+/* =========================================================
+   MOBILE HERO — STACKED
+   ========================================================= */
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding-top: 110px;
+        padding-bottom: 40px;
+    }
+
+    .hero-content {
+        text-align: center !important;
+        padding: 20px !important;
+        margin-top: 15px;
+    }
+
+    .hero-video-left {
+        height: 230px !important;
+    }
+
+    .hero-title {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        max-width: 95%;
+        margin: 0.8rem auto 1.2rem auto;
+    }
+
+    .hero-cta {
+        margin-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+@media (min-width: 768px) and (max-width: 992px) {
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+}
+
+
+/* =========================================================
+   VIDEO FALLBACKS
+   ========================================================= */
+
+.video-fallback {
+    background: linear-gradient(135deg, #7C3AED, #06B6D4, #10B981);
+    animation: gradientShift 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+
+/* =========================================================
+   UTILITY FIXES
+   ========================================================= */
+
+.text-glow {
+    text-shadow: 0px 0px 18px rgba(56, 189, 248, 0.5);
+}
+
+
+/* =========================================================
+   WHATSAPP FLOATING BUTTON
+   ========================================================= */
+
+.whatsapp-float {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    bottom: 22px;
+    right: 22px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #1ebe5d;
+}
+
+.whatsapp-float img {
+    filter: brightness(100%);
+}
+
+/* =========================================================
+   FAQ ACCORDION STYLES
+   ========================================================= */
+
+.faq-item {
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #7C3AED;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-icon.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Ensure hidden class works properly */
+.faq-answer.hidden {
+    display: none !important;
+}
+
+.faq-answer:not(.hidden) {
+    display: block;
+}
+
+/* =========================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================================= */
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #7C3AED;
+    outline-offset: 2px;
+}
+
+/* Contact Form Submit Button - Ensure Visibility */
+.contact-submit-btn,
+#submitBtn {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0.875rem 1.5rem !important;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+    margin-top: 0.5rem !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+
+.contact-submit-btn:hover,
+#submitBtn:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5) !important;
+    outline: 2px solid rgba(99, 102, 241, 0.3) !important;
+    outline-offset: 2px !important;
+}
+
+.contact-submit-btn:focus,
+#submitBtn:focus {
+    outline: 3px solid rgba(99, 102, 241, 0.5) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2), 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+}
+
+.contact-submit-btn:active,
+#submitBtn:active {
+    transform: translateY(0) scale(0.98) !important;
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4) !important;
+}
+
+.contact-submit-btn:disabled,
+#submitBtn:disabled {
+    opacity: 0.7 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+.submit-btn-text {
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+/* Logo Quality Optimization - HD Display */
+.header-logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: high-quality;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    display: block;
+    flex-shrink: 0;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .header-logo-img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Ensure contact form button container is properly aligned */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#contactForm button[type="submit"],
+#contactForm .contact-submit-btn {
+    align-self: stretch;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Skip to main content link */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* =========================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================= */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================
+   PRINT STYLES
+   ========================================================= */
+
+@media print {
+    .whatsapp-float,
+    .mobile-menu,
+    header,
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        color: #000;
+        background: #fff;
+    }
+}

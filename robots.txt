@@ -1,0 +1,25 @@
+# robots.txt for hiremediamind.com
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important files
+Allow: /styles/
+Allow: /js/
+Allow: /images/
+Allow: /animations/
+
+# Sitemap location
+Sitemap: https://www.hiremediamind.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+
+
+

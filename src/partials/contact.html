@@ -1,0 +1,120 @@
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6 md:px-12 max-w-3xl">
+        
+        <h2 class="text-4xl font-bold text-center mb-6">Contact Us</h2>
+
+        <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbyNYT8QZYM7Ac-RtJRJW5QucjK9xZd0JyYrtb8E8xWklDxQAvJGC8dA4GbsAlN7MBKm/exec" class="bg-white p-8 rounded-xl shadow-lg">
+
+            <input type="text" name="name" class="border p-3 w-full rounded-lg mb-4" placeholder="Name" required>
+            <input type="email" name="email" class="border p-3 w-full rounded-lg mb-4" placeholder="Email" required>
+            <input type="text" name="phone" class="border p-3 w-full rounded-lg mb-4" placeholder="Phone Number" required>
+
+            <select name="service" class="border p-3 w-full rounded-lg mb-4" required>
+                <option value="">Select Service</option>
+                <option value="Facebook Ads">Facebook Ads</option>
+                <option value="Google Ads">Google Ads</option>
+                <option value="AI Automation">AI Automation</option>
+                <option value="AI Chatbots">AI Chatbots</option>
+                <option value="Performance Marketing">Performance Marketing</option>
+            </select>
+
+            <textarea name="message" rows="4" class="border p-3 w-full rounded-lg mb-4" placeholder="Your Message"></textarea>
+
+            <!-- Hidden fields for location data -->
+            <input type="hidden" name="country" id="country">
+            <input type="hidden" name="city" id="city">
+            <input type="hidden" name="timestamp" id="timestamp">
+
+            <button type="submit" id="submitBtn" class="bg-purple-600 text-white px-6 py-3 rounded-lg w-full font-semibold hover:bg-purple-700 transition">
+                Submit
+            </button>
+
+            <!-- Status message -->
+            <p id="form-status" class="text-center mt-4 font-semibold"></p>
+
+        </form>
+
+        <script>
+        // Get user's location when page loads
+        async function getUserLocation() {
+            try {
+                // Using ipapi.co (free, no API key needed)
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                
+                // Set hidden fields
+                document.getElementById('country').value = data.country_name || 'Unknown';
+                document.getElementById('city').value = data.city || 'Unknown';
+                
+                console.log('Location detected:', data.city, data.country_name);
+            } catch (error) {
+                console.log('Could not detect location:', error);
+                document.getElementById('country').value = 'Unknown';
+                document.getElementById('city').value = 'Unknown';
+            }
+        }
+
+        // Get location when page loads
+        getUserLocation();
+
+        // Handle form submission
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            let form = this;
+            let submitBtn = document.getElementById("submitBtn");
+            let status = document.getElementById("form-status");
+            
+            // Add timestamp
+            document.getElementById('timestamp').value = new Date().toISOString();
+            
+            // Show loading state
+            submitBtn.textContent = "Sending...";
+            submitBtn.disabled = true;
+            
+            // Submit form data
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: "POST",
+                body: formData,
+                mode: 'no-cors' // Important for Google Apps Script
+            })
+            .then(response => {
+                console.log("Form submitted successfully!");
+                
+                // Show success message
+                status.innerHTML = "✅ Success! Redirecting...";
+                status.style.color = "green";
+                
+                // Track with GTM
+                if (typeof window.dataLayer !== 'undefined') {
+                    window.dataLayer.push({
+                        'event': 'formSubmission',
+                        'formType': 'contact',
+                        'country': document.getElementById('country').value,
+                        'city': document.getElementById('city').value
+                    });
+                }
+                
+                // Redirect to thank you page
+                setTimeout(function() {
+                    window.location.href = "/thank-you.html";
+                }, 1500);
+            })
+            .catch(error => {
+                console.error("Form error:", error);
+                
+                // Still redirect even if error (form might have submitted)
+                status.innerHTML = "✅ Submitted! Redirecting...";
+                status.style.color = "green";
+                
+                setTimeout(function() {
+                    window.location.href = "/thank-you.html";
+                }, 1500);
+            });
+        });
+        </script>
+
+    </div>
+</section>
