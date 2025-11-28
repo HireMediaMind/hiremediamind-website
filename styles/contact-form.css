@@ -1,0 +1,25 @@
+.contact-form .input-field {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s;
+    font-size: 15px;
+    background-color: #fff;
+}
+
+.contact-form .input-field:hover,
+.contact-form .input-field:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.3);
+}
+
+.contact-honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
