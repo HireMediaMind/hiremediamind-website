@@ -47,16 +47,24 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             mobileMenu.classList.add('menu-open');
             document.body.style.overflow = 'hidden';
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            mobileMenu?.setAttribute('aria-hidden', 'false');
             trackEvent('Navigation', 'mobile_menu_open', 'Hamburger Click');
         });
     }
 
     // Close mobile menu
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('menu-open');
+        document.body.style.overflow = '';
+        mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+        mobileMenu?.setAttribute('aria-hidden', 'true');
+    }
+
     if (closeMobileBtn) {
         closeMobileBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            mobileMenu.classList.remove('menu-open');
-            document.body.style.overflow = '';
+            closeMobileMenu();
             trackEvent('Navigation', 'mobile_menu_close', 'Close Button');
         });
     }
@@ -64,8 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close menu when clicking a link
     mobileLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenu.classList.remove('menu-open');
-            document.body.style.overflow = '';
+            closeMobileMenu();
             trackEvent('Navigation', 'mobile_link_click', link.getAttribute('href'));
         });
     });
@@ -73,8 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close menu when clicking outside
     mobileMenu?.addEventListener('click', function(e) {
         if (e.target === mobileMenu) {
-            mobileMenu.classList.remove('menu-open');
-            document.body.style.overflow = '';
+            closeMobileMenu();
         }
     });
 

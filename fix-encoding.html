@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Encoding Fixer</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0fdf4;
+            border: 2px solid #86efac;
+            border-radius: 5px;
+            display: none;
+        }
+        .example {
+            background: #fef3c7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Character Encoding Fixer</h1>
+        <p>Paste your HTML code below and click "Fix Encoding" to replace broken characters.</p>
+        
+        <div class="example">
+            <strong>Examples of what will be fixed:</strong><br>
+            â€" → — (em dash)<br>
+            âœ" → ✓ (checkmark)<br>
+            ðŸš€ → 🚀 (emoji)<br>
+            â€¢ → • (bullet)<br>
+            â€™ → ' (apostrophe)
+        </div>
+        
+        <label><strong>Paste your HTML code here:</strong></label>
+        <textarea id="inputText" placeholder="Paste HTML code here..."></textarea>
+        
+        <button onclick="fixEncoding()">✨ Fix Encoding</button>
+        
+        <div class="result" id="result">
+            <strong>✅ Fixed! Copy the code below:</strong>
+            <textarea id="outputText" readonly></textarea>
+            <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        const replacements = {
+            // Em dashes and hyphens
+            'â€"': '—',
+            'â€"': '–',
+            'â€"': '—',
+            
+            // Quotes
+            'â€œ': '"',
+            'â€': '"',
+            'â€˜': ''',
+            'â€™': ''',
+            '"': '"',
+            '"': '"',
+            ''': ''',
+            ''': ''',
+            
+            // Checkmarks and X
+            'âœ"': '✓',
+            'âœ…': '✅',
+            'âŒ': '❌',
+            
+            // Bullets
+            'â€¢': '•',
+            
+            // Emojis (common ones)
+            'ðŸš€': '🚀',
+            'ðŸ"Š': '📊',
+            'ðŸŽ¯': '🎯',
+            'ðŸ'¬': '💬',
+            'ðŸ'³': '💳',
+            'ðŸ"'': '🔒',
+            'ðŸ"ˆ': '📈',
+            'ðŸ"§': '📧',
+            'ðŸ"±': '📱',
+            'ðŸ¤–': '🤖',
+            'ðŸ'°': '💰',
+            'ðŸ"': '📅',
+            'â±ï¸': '⏱️',
+            'ðŸŽ‰': '🎉',
+            'âš ï¸': '⚠️',
+            'ðŸ"„': '📄',
+            'ðŸ›'': '🛒',
+            'ðŸ'»': '💻',
+            'ðŸ¥': '🏥',
+            'ðŸ¢': '🏢',
+            'ðŸ§ª': '🧪',
+            'ðŸ"—': '🔗',
+            'ðŸ§ ': '🧠',
+            'âš¡': '⚡',
+            'ðŸ"š': '📚',
+            'ðŸ"¬': '📬',
+            'â"': '❓',
+            'â–¼': '▼',
+            'â†'': '→',
+            
+            // Special characters
+            'Â©': '©',
+            'Â®': '®',
+            'â„¢': '™',
+            'Â°': '°',
+            'Â±': '±',
+            'Ã—': '×',
+            'Ã·': '÷',
+            'â‚¹': '₹',
+            'â‚¬': '€',
+            'Â£': '£',
+            'Â¥': '¥',
+            'Ã¢€¦': '…',
+            
+            // Fractions
+            'Â½': '½',
+            'Â¼': '¼',
+            'Â¾': '¾',
+            
+            // Math symbols
+            'â‰¤': '≤',
+            'â‰¥': '≥',
+            'â‰ ': '≠',
+            'âˆ': '∞',
+            
+            // Arrows
+            'â†'': '→',
+            'â† ': '←',
+            'â†'': '↑',
+            'â†"': '↓',
+            'â‡'': '⇒',
+            'â‡ ': '⇐'
+        };
+        
+        function fixEncoding() {
+            const input = document.getElementById('inputText').value;
+            
+            if (!input.trim()) {
+                alert('Please paste some code first!');
+                return;
+            }
+            
+            let fixed = input;
+            let replacementCount = 0;
+            
+            // Apply all replacements
+            for (const [broken, correct] of Object.entries(replacements)) {
+                const regex = new RegExp(broken.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+                const matches = fixed.match(regex);
+                if (matches) {
+                    replacementCount += matches.length;
+                    fixed = fixed.replace(regex, correct);
+                }
+            }
+            
+            // Show result
+            document.getElementById('outputText').value = fixed;
+            document.getElementById('result').style.display = 'block';
+            
+            alert(`✅ Fixed ${replacementCount} character encoding issues!`);
+        }
+        
+        function copyToClipboard() {
+            const output = document.getElementById('outputText');
+            output.select();
+            document.execCommand('copy');
+            alert('📋 Copied to clipboard!');
+        }
+    </script>
+</body>
+</html>

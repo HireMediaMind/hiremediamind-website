@@ -113,6 +113,63 @@
   }
 
   /* -------------------------------
+     Contact form (AJAX + fallback)
+  --------------------------------*/
+  function initContactForm() {
+    var form = document.getElementById("contactForm");
+    if (!form) return;
+
+    var statusEl = document.getElementById("form-status");
+    var btn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!btn) return form.submit();
+
+      var original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      var fd = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method || "POST",
+        body: fd,
+      })
+        .then((res) => res.text())
+        .then(() => {
+          if (statusEl) {
+            statusEl.style.display = "block";
+            statusEl.className =
+              "mt-6 p-6 rounded-lg text-center font-semibold bg-green-100 text-green-800";
+            statusEl.innerHTML =
+              "<p class='text-2xl mb-2'>🎉 Thank you — we’ll contact you shortly!</p>";
+          }
+
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: "contact_form_success" });
+          }
+
+          form.reset();
+          setTimeout(() => (form.style.display = "none"), 1800);
+        })
+        .catch(() => {
+          if (statusEl) {
+            statusEl.style.display = "block";
+            statusEl.className =
+              "mt-6 p-6 rounded-lg text-center font-semibold bg-red-100 text-red-800";
+            statusEl.innerHTML =
+              "<p class='text-xl'>⚠️ Something went wrong. Try again.</p>";
+          }
+
+          btn.disabled = false;
+          btn.textContent = original;
+        });
+    });
+  }
+
+  /* -------------------------------
      Currency Selector Hook
   --------------------------------*/
   function initCurrencySelector() {
@@ -164,6 +221,7 @@
       // Heavy tasks → run on idle
       onIdle(function () {
         initAnalytics();
+        initContactForm();
       });
     } catch (e) {
       log("Init error:", e);
