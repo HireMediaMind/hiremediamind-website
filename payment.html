@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment - HireMediaMind</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,39 +21,48 @@
             }
         }
     </script>
-    
+
     <!-- Razorpay Script -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    
+    <!-- Stripe Script -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- PayPal Script (Sandbox for now) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
     <!-- Currency Converter -->
     <script src="js/currency-converter.js" defer></script>
-    
+
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 min-h-screen">
-    
+
     <!-- Header -->
     <header class="bg-white border-b border-gray-200">
         <div class="container mx-auto px-4 py-4">
             <a href="/" class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                <div
+                    class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
                     <span class="text-white font-bold text-lg">HM</span>
                 </div>
-                <span class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">HireMediaMind</span>
+                <span
+                    class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">HireMediaMind</span>
             </a>
         </div>
     </header>
-    
+
     <div class="container mx-auto px-4 py-12 max-w-3xl">
-        
+
         <!-- Payment Header -->
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold text-gray-900 mb-4">Complete Your Payment</h1>
             <p class="text-gray-600">Secure payment processing via Razorpay</p>
         </div>
-        
+
         <!-- Plan Info Card -->
         <div id="planInfo" class="bg-white rounded-2xl shadow-lg p-6 mb-6 border-2 border-primary">
             <div class="flex justify-between items-center">
@@ -62,20 +72,27 @@
                 </div>
                 <div class="text-right">
                     <p class="text-sm text-gray-500 mb-1">Total Amount</p>
+                    <div class="flex items-center justify-end gap-2">
+                        <span id="originalPrice" class="text-gray-400 line-through text-lg hidden"></span>
+                        <span id="discountBadge"
+                            class="bg-red-100 text-red-600 text-xs font-bold px-2 py-1 rounded-full hidden"></span>
+                    </div>
                     <p class="text-3xl font-bold text-primary" id="planPrice">$500</p>
                     <p class="text-sm text-gray-500" id="planCurrency">USD /month</p>
                 </div>
             </div>
         </div>
-        
+
         <!-- Payment Form -->
         <div class="bg-white rounded-2xl shadow-lg p-8">
-            
+
             <!-- Trust Badges -->
             <div class="flex justify-center items-center space-x-6 mb-8 pb-8 border-b">
                 <div class="flex items-center space-x-2 text-gray-600">
                     <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                        <path fill-rule="evenodd"
+                            d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                            clip-rule="evenodd"></path>
                     </svg>
                     <span class="text-sm">SSL Secured</span>
                 </div>
@@ -88,56 +105,69 @@
                 </div>
                 <div class="flex items-center space-x-2 text-gray-600">
                     <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
                     </svg>
                     <span class="text-sm">RBI Compliant</span>
                 </div>
             </div>
-            
+
             <form id="paymentForm" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                        <input type="text" id="customerName" required 
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
-                               placeholder="John Smith">
+                        <input type="text" id="customerName" required
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                            placeholder="John Smith">
                     </div>
-                    
+
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                        <input type="email" id="customerEmail" required 
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
-                               placeholder="john@company.com">
+                        <input type="email" id="customerEmail" required
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                            placeholder="john@company.com">
                     </div>
                 </div>
-                
+
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                        <input type="tel" id="customerPhone" required 
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
-                               placeholder="+1 234 567 8900">
+                        <input type="tel" id="customerPhone" required
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                            placeholder="+1 234 567 8900">
                     </div>
-                    
+
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
-                        <input type="text" id="companyName" 
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none" 
-                               placeholder="Your Company">
+                        <input type="text" id="companyName"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                            placeholder="Your Company">
                     </div>
                 </div>
-                
+
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Payment Type *</label>
-                    <select id="paymentType" required 
-                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none">
+                    <select id="paymentType" required
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none">
                         <option value="first-month">First Month Payment</option>
                         <option value="deposit">Initial Deposit (30-40%)</option>
                         <option value="milestone">Milestone Payment</option>
                         <option value="retainer">Monthly Retainer</option>
+                        <option value="custom">Custom Amount</option>
                     </select>
                 </div>
-                
+
+                <div id="customAmountContainer" class="hidden">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Enter Amount *</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-3.5 text-gray-500" id="customCurrencySymbol">$</span>
+                        <input type="number" id="customAmountInput"
+                            class="w-full pl-8 px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none"
+                            placeholder="1000">
+                    </div>
+                </div>
+
                 <!-- Amount Display (converted to INR for Razorpay) -->
                 <div class="bg-gray-50 rounded-lg p-4">
                     <div class="flex justify-between items-center mb-2">
@@ -148,113 +178,240 @@
                         <span class="text-sm text-gray-600">Amount in INR (for payment):</span>
                         <span class="text-lg font-semibold text-primary" id="inrAmount">₹41,500</span>
                     </div>
-                    <p class="text-xs text-gray-500 mt-2">* Razorpay processes payments in INR. Amount converted at current exchange rate.</p>
+                    <p class="text-xs text-gray-500 mt-2">* Razorpay processes payments in INR. Amount converted at
+                        current exchange rate.</p>
                 </div>
-                
-                <!-- Payment Button -->
-                <button type="submit" id="payBtn" 
-                        class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
-                    💳 Pay Securely with Razorpay
+
+                <!-- Payment Gateway Tabs -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Payment Method</label>
+                    <div class="flex space-x-4">
+                        <button type="button"
+                            class="flex-1 py-3 border-2 border-primary bg-primary text-white rounded-lg font-bold"
+                            onclick="selectGateway('stripe')">
+                            <i class="fas fa-credit-card mr-2"></i> Card (Stripe)
+                        </button>
+                        <button type="button"
+                            class="flex-1 py-3 border-2 border-gray-200 text-gray-600 rounded-lg font-bold hover:border-blue-500"
+                            onclick="selectGateway('paypal')">
+                            <i class="fab fa-paypal mr-2"></i> PayPal
+                        </button>
+                        <button type="button"
+                            class="flex-1 py-3 border-2 border-gray-200 text-gray-600 rounded-lg font-bold hover:border-blue-500"
+                            onclick="selectGateway('razorpay')">
+                            <i class="fas fa-rupee-sign mr-2"></i> Razorpay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stripe Element Container -->
+                <div id="stripe-element-container" class="mb-6 hidden">
+                    <div id="card-element" class="p-4 border rounded-lg"></div>
+                    <div id="card-errors" role="alert" class="text-red-500 text-sm mt-2"></div>
+                </div>
+
+                <!-- PayPal Button Container -->
+                <div id="paypal-button-container" class="mb-6 hidden"></div>
+
+                <!-- Payment Button (Stripe/Razorpay) -->
+                <button type="submit" id="payBtn"
+                    class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
+                    💳 Pay Securely
                 </button>
-                
+
                 <!-- Alternative Payment Options -->
                 <div class="text-center pt-4 border-t">
                     <p class="text-sm text-gray-600 mb-3">Prefer other payment methods?</p>
                     <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                        <a href="https://wa.me/918429889303?text=Hi,%20I%27d%20like%20to%20discuss%20payment%20options%20for%20the%20plan." 
-                           target="_blank"
-                           class="inline-flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+                        <a href="https://wa.me/918429889303?text=Hi,%20I%27d%20like%20to%20discuss%20payment%20options%20for%20the%20plan."
+                            target="_blank"
+                            class="inline-flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                             </svg>
                             <span>Pay via WhatsApp</span>
                         </a>
-                        <a href="mailto:hello@hiremediamind.com?subject=Payment%20Inquiry" 
-                           class="inline-flex items-center justify-center space-x-2 bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+                        <a href="mailto:hello@hiremediamind.com?subject=Payment%20Inquiry"
+                            class="inline-flex items-center justify-center space-x-2 bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
                             </svg>
                             <span>Request Invoice</span>
                         </a>
                     </div>
                 </div>
             </form>
-            
+
             <!-- Security Note -->
             <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
                 <p class="text-sm text-green-800">
-                    <strong>🔒 Your payment is secure:</strong> All transactions are processed through Razorpay's PCI-DSS compliant payment gateway. Your card details are never stored on our servers.
+                    <strong>🔒 Your payment is secure:</strong> All transactions are processed through Razorpay's
+                    PCI-DSS compliant payment gateway. Your card details are never stored on our servers.
                 </p>
             </div>
         </div>
-        
+
         <!-- Support -->
         <div class="text-center mt-8">
             <p class="text-gray-600 mb-2">Need help with your payment?</p>
             <div class="flex justify-center space-x-4">
-                <a href="https://wa.me/918429889303" class="text-green-600 hover:underline font-medium">WhatsApp Support</a>
+                <a href="https://wa.me/918429889303" class="text-green-600 hover:underline font-medium">WhatsApp
+                    Support</a>
                 <span class="text-gray-300">|</span>
-                <a href="mailto:hello@hiremediamind.com" class="text-primary hover:underline font-medium">Email Support</a>
+                <a href="mailto:hello@hiremediamind.com" class="text-primary hover:underline font-medium">Email
+                    Support</a>
             </div>
         </div>
     </div>
-    
+
     <script>
-        // Get plan info from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const plan = urlParams.get('plan') || 'starter';
-        let currency = urlParams.get('currency');
-        
-        // If no currency in URL, try to get from localStorage or detect
-        if (!currency) {
-            currency = localStorage.getItem('preferredCurrency') || 'USD';
+        // Initialize Stripe
+        const stripe = Stripe('pk_test_...'); // Replace with your Publishable Key
+        const elements = stripe.elements();
+        const card = elements.create('card');
+        card.mount('#card-element');
+
+        let currentGateway = 'stripe';
+
+        function selectGateway(gateway) {
+            currentGateway = gateway;
+
+            // Reset UI
+            document.querySelectorAll('button[onclick^="selectGateway"]').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white', 'border-primary');
+                btn.classList.add('text-gray-600', 'border-gray-200');
+            });
+
+            // Highlight selected
+            const selectedBtn = document.querySelector(`button[onclick="selectGateway('${gateway}')"]`);
+            selectedBtn.classList.remove('text-gray-600', 'border-gray-200');
+            selectedBtn.classList.add('bg-primary', 'text-white', 'border-primary');
+
+            // Show/Hide Containers
+            document.getElementById('stripe-element-container').classList.add('hidden');
+            document.getElementById('paypal-button-container').classList.add('hidden');
+            document.getElementById('payBtn').classList.remove('hidden');
+
+            if (gateway === 'stripe') {
+                document.getElementById('stripe-element-container').classList.remove('hidden');
+                document.getElementById('payBtn').innerText = '💳 Pay with Card';
+            } else if (gateway === 'paypal') {
+                document.getElementById('paypal-button-container').classList.remove('hidden');
+                document.getElementById('payBtn').classList.add('hidden'); // PayPal has its own buttons
+                renderPayPalButtons();
+            } else if (gateway === 'razorpay') {
+                document.getElementById('payBtn').innerText = '💳 Pay with Razorpay';
+            }
         }
-        
-        // If still no currency, try to detect from location
-        if (!currency || currency === 'USD') {
-            // Try to detect from browser/API
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    const countryToCurrency = {
-                        'US': 'USD', 'GB': 'GBP', 'AE': 'AED', 'SG': 'SGD',
-                        'AU': 'AUD', 'IN': 'INR', 'DE': 'EUR', 'FR': 'EUR',
-                        'NL': 'EUR', 'PL': 'EUR'
-                    };
-                    const detectedCurrency = countryToCurrency[data.country_code] || 'USD';
-                    if (detectedCurrency !== currency) {
-                        currency = detectedCurrency;
-                        initPaymentPage(); // Re-initialize with detected currency
-                    }
-                })
-                .catch(() => {
-                    // If detection fails, use USD
-                    currency = currency || 'USD';
-                });
-        }
-        
+
+        // Initial Selection
+        selectGateway('stripe');
+
+        // Custom Amount Logic
+        document.getElementById('paymentType').addEventListener('change', function () {
+            const isCustom = this.value === 'custom';
+            document.getElementById('customAmountContainer').classList.toggle('hidden', !isCustom);
+            if (isCustom) {
+                document.getElementById('planPrice').innerText = 'Enter Amount';
+                document.getElementById('displayAmount').innerText = 'Enter Amount';
+                // Hide discount UI when custom is selected
+                document.getElementById('originalPrice').classList.add('hidden');
+                document.getElementById('discountBadge').classList.add('hidden');
+            } else {
+                initPaymentPage(); // Reset to plan price (which re-applies discount if URL param exists)
+            }
+        });
+
+        document.getElementById('customAmountInput').addEventListener('input', function () {
+            const amount = parseFloat(this.value) || 0;
+            const symbol = currencySymbols[currency] || '$';
+            const rate = currencyRates[currency] || 1.0;
+
+            // Update Display
+            document.getElementById('planPrice').innerText = symbol + amount;
+            document.getElementById('displayAmount').innerText = symbol + amount;
+
+            // Calculate INR
+            let amountInINR = 0;
+            if (currency === 'INR') {
+                amountInINR = amount;
+            } else {
+                // Convert to USD then to INR
+                const usdAmount = amount / rate;
+                amountInINR = Math.round(usdAmount * currencyRates.INR);
+            }
+            document.getElementById('inrAmount').innerText = '₹' + amountInINR.toLocaleString();
+
+            // Update Global Variables
+            window.paymentAmount = amount;
+            window.paymentAmountINR = amountInINR;
+        });
+
         // Plan configurations
         const plans = {
             starter: {
-                name: 'Starter Plan',
+                name: 'Essential Growth',
                 description: 'Basic Ad Management & Weekly Reports',
-                usdPrice: 500,
-                features: ['Basic Ad Management', 'Weekly Performance Reports', 'Basic Tracking Setup']
+                usdPrice: 997,
+                features: ['2 Social Media Platforms', 'Basic Ad Management', 'Monthly Reports']
             },
             growth: {
-                name: 'Growth Plan',
+                name: 'Growth Accelerator',
                 description: 'Advanced Ad Management & AI Automation',
-                usdPrice: 1200,
-                features: ['Advanced Ad Management', 'AI Automation Workflows', 'Daily Optimization', 'Comprehensive Analytics']
+                usdPrice: 1997,
+                features: ['4 Social Media Platforms', 'Advanced Ad Management', 'Bi-Weekly Reports']
             },
-            premium: {
-                name: 'Premium Plan',
-                description: 'Enterprise Ad Management & Custom AI Solutions',
-                usdPrice: 3000,
-                features: ['Enterprise Ad Management', 'Custom AI Solutions', 'Dedicated Account Manager', '24/7 Priority Support']
+            scale: {
+                name: 'Market Dominance',
+                description: 'Full Funnel Optimization & Dedicated Support',
+                usdPrice: 3997,
+                features: ['All Social Platforms', 'Omnichannel Strategy', '24/7 Priority Support']
+            },
+            basic_ai: { // Keeping for backward compatibility if needed, or mapping 'starter' automation to this
+                name: 'Efficiency Boost',
+                description: 'AI Customer Support & Lead Qualification',
+                usdPrice: 1497,
+                features: ['AI Chatbot', 'Lead Qualification', 'CRM Integration']
+            },
+            pro: {
+                name: 'Business Autopilot',
+                description: 'Advanced Workflow Automation & AI Agents',
+                usdPrice: 2997,
+                features: ['Everything in Starter', 'WhatsApp Automation', 'Custom Knowledge Base']
+            },
+            enterprise: {
+                name: 'Custom AI Infrastructure',
+                description: 'Tailored AI Solutions for Large Scale Operations',
+                usdPrice: 0, // Indicates custom
+                features: ['Custom LLM Development', 'Private Server Deployment', 'SLA Guarantees']
             }
         };
-        
+
+        // Handle 'automation' type mapping if needed, or just rely on plan names
+        // The pricing.html passes plan=starter&type=automation. 
+        // We need to handle that mapping or ensure plan names are unique.
+        // pricing.html uses:
+        // performance: starter, growth, scale
+        // automation: starter, pro, enterprise
+
+        // Let's refine the plan detection to handle the 'type' parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const planParam = urlParams.get('plan') || 'starter';
+        const typeParam = urlParams.get('type');
+        let currency = urlParams.get('currency');
+        const amountParam = urlParams.get('amount');
+        const discountParam = urlParams.get('discount'); // New discount param
+
+        // Map generic plan names to specific keys based on type
+        let planKey = planParam;
+        if (typeParam === 'automation') {
+            if (planParam === 'starter') planKey = 'basic_ai';
+            // pro and enterprise are unique keys already
+        }
+
         // Currency rates (same as currency-converter.js)
         const currencyRates = {
             USD: 1.0,
@@ -265,7 +422,7 @@
             AUD: 1.52,
             INR: 83.0
         };
-        
+
         const currencySymbols = {
             USD: '$',
             GBP: '£',
@@ -275,83 +432,230 @@
             AUD: 'A$',
             INR: '₹'
         };
-        
+
+        // Global Discount Configuration (Set to 0 to disable)
+        const SITE_WIDE_DISCOUNT = 30; // 30% Discount Applied Globally
+
         // Initialize page
         function initPaymentPage() {
-            const selectedPlan = plans[plan] || plans.starter;
+            const selectedPlan = plans[planKey] || plans.starter;
             const rate = currencyRates[currency] || 1.0;
             const symbol = currencySymbols[currency] || '$';
-            
-            // Calculate prices
-            const priceInCurrency = Math.round(selectedPlan.usdPrice * rate);
-            const priceInINR = Math.round(selectedPlan.usdPrice * currencyRates.INR);
-            
+
+            // Check if it's a custom amount scenario
+            let priceInCurrency = 0;
+            let priceInINR = 0;
+            let isCustom = selectedPlan.usdPrice === 0 || amountParam;
+            let discount = 0;
+
+            // Handle Discount (URL param overrides global discount)
+            if (discountParam && !isNaN(discountParam) && !isCustom) {
+                discount = parseFloat(discountParam);
+            } else if (SITE_WIDE_DISCOUNT > 0 && !isCustom) {
+                discount = SITE_WIDE_DISCOUNT;
+            }
+
+            if (amountParam) {
+                // If amount is passed in URL, use it
+                priceInCurrency = parseFloat(amountParam);
+                // We assume the passed amount is in the selected currency
+                // To get INR, we convert back to USD then to INR, or assume USD input
+                // For simplicity, let's assume URL amount is in USD if not specified
+                // But better: assume it matches the 'currency' param
+
+                // If currency is INR, priceInINR is just the amount
+                if (currency === 'INR') {
+                    priceInINR = priceInCurrency;
+                } else {
+                    // Convert to USD then to INR
+                    const usdAmount = priceInCurrency / rate;
+                    priceInINR = Math.round(usdAmount * currencyRates.INR);
+                }
+                isCustom = true;
+
+                // Set input value if custom container is shown
+                document.getElementById('customAmountInput').value = priceInCurrency;
+            } else if (selectedPlan.usdPrice > 0) {
+                let basePrice = Math.round(selectedPlan.usdPrice * rate);
+
+                // Apply Discount
+                if (discount > 0) {
+                    priceInCurrency = Math.round(basePrice * (1 - discount / 100));
+
+                    // Show original price and badge
+                    document.getElementById('originalPrice').textContent = symbol + basePrice.toLocaleString();
+                    document.getElementById('originalPrice').classList.remove('hidden');
+                    document.getElementById('discountBadge').textContent = discount + '% OFF';
+                    document.getElementById('discountBadge').classList.remove('hidden');
+                } else {
+                    priceInCurrency = basePrice;
+                    // Hide discount UI
+                    document.getElementById('originalPrice').classList.add('hidden');
+                    document.getElementById('discountBadge').classList.add('hidden');
+                }
+
+                priceInINR = Math.round(selectedPlan.usdPrice * (1 - discount / 100) * currencyRates.INR);
+            }
+
             // Update UI
             document.getElementById('planName').textContent = selectedPlan.name;
             document.getElementById('planDescription').textContent = selectedPlan.description;
-            document.getElementById('planPrice').textContent = symbol + priceInCurrency.toLocaleString();
+
+            if (isCustom && !amountParam && selectedPlan.usdPrice === 0) {
+                // Enterprise/Custom plan without URL amount -> Show input
+                document.getElementById('paymentType').value = 'custom';
+                document.getElementById('customAmountContainer').classList.remove('hidden');
+                document.getElementById('planPrice').textContent = 'Enter Amount';
+                document.getElementById('displayAmount').textContent = 'Enter Amount';
+                document.getElementById('inrAmount').textContent = '₹0';
+
+                // Hide discount UI for custom
+                document.getElementById('originalPrice').classList.add('hidden');
+                document.getElementById('discountBadge').classList.add('hidden');
+            } else {
+                // Fixed price or URL amount
+                document.getElementById('planPrice').textContent = symbol + priceInCurrency.toLocaleString();
+                document.getElementById('displayAmount').textContent = symbol + priceInCurrency.toLocaleString();
+                document.getElementById('inrAmount').textContent = '₹' + priceInINR.toLocaleString();
+
+                if (amountParam) {
+                    document.getElementById('paymentType').value = 'custom';
+                    document.getElementById('customAmountContainer').classList.remove('hidden');
+                    // Hide discount UI for custom amount param
+                    document.getElementById('originalPrice').classList.add('hidden');
+                    document.getElementById('discountBadge').classList.add('hidden');
+                }
+            }
+
             document.getElementById('planCurrency').textContent = currency + ' /month';
-            document.getElementById('displayAmount').textContent = symbol + priceInCurrency.toLocaleString();
-            document.getElementById('inrAmount').textContent = '₹' + priceInINR.toLocaleString();
-            
+            document.getElementById('customCurrencySymbol').textContent = symbol;
+
             // Store for payment
-            window.paymentAmount = priceInINR; // Always use INR for Razorpay
+            window.paymentAmount = priceInCurrency;
+            window.paymentAmountINR = priceInINR;
             window.planInfo = selectedPlan;
         }
-        
+
+        function renderPayPalButtons() {
+            document.getElementById('paypal-button-container').innerHTML = '';
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    // Call your backend to create order
+                    return fetch('api/create-payment.php', {
+                        method: 'post',
+                        headers: { 'content-type': 'application/json' },
+                        body: JSON.stringify({
+                            gateway: 'paypal',
+                            amount: window.paymentAmount,
+                            currency: currency,
+                            plan: window.planInfo.name
+                        })
+                    }).then(function (res) {
+                        return res.json();
+                    }).then(function (orderData) {
+                        return orderData.id;
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        verifyPayment(details.id, 'paypal', 'completed');
+                    });
+                }
+            }).render('#paypal-button-container');
+        }
+
         // Handle form submission
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        document.getElementById('paymentForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('customerName').value;
             const email = document.getElementById('customerEmail').value;
             const phone = document.getElementById('customerPhone').value;
             const company = document.getElementById('companyName').value || 'N/A';
             const paymentType = document.getElementById('paymentType').value;
-            
-            // Razorpay Options
-            var options = {
-                // REPLACE WITH YOUR ACTUAL RAZORPAY KEY ID
-                "key": "rzp_live_Ri7PMF879mDGn1", // Get from Razorpay Dashboard > Settings > API Keys
-                "amount": window.paymentAmount * 100, // Amount in paise (INR)
-                "currency": "INR",
-                "name": "HireMediaMind",
-                "description": window.planInfo.name + " - " + paymentType,
-                "image": "https://www.hiremediamind.com/logo.png",
-                "handler": function (response){
-                    // Payment successful
-                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
-                    
-                    // Redirect to thank you page
-                    window.location.href = '/thank-you.html?payment_id=' + response.razorpay_payment_id + '&plan=' + plan;
-                },
-                "prefill": {
-                    "name": name,
-                    "email": email,
-                    "contact": phone
-                },
-                "notes": {
-                    "plan": plan,
-                    "payment_type": paymentType,
-                    "company": company
-                },
-                "theme": {
-                    "color": "#7C3AED"
-                },
-                "modal": {
-                    "ondismiss": function(){
-                        console.log('Payment cancelled');
-                    }
-                }
-            };
-            
-            var rzp = new Razorpay(options);
-            rzp.open();
+
+            if (currentGateway === 'stripe') {
+                // Create Payment Intent
+                fetch('api/create-payment.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        gateway: 'stripe',
+                        amount: window.paymentAmount,
+                        currency: currency,
+                        plan: window.planInfo.name
+                    })
+                })
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.error) { alert(data.error); return; }
+
+                        stripe.confirmCardPayment(data.clientSecret, {
+                            payment_method: {
+                                card: card,
+                                billing_details: { name: name, email: email }
+                            }
+                        }).then(function (result) {
+                            if (result.error) {
+                                document.getElementById('card-errors').textContent = result.error.message;
+                            } else {
+                                if (result.paymentIntent.status === 'succeeded') {
+                                    verifyPayment(result.paymentIntent.id, 'stripe', 'succeeded');
+                                }
+                            }
+                        });
+                    });
+
+            } else if (currentGateway === 'razorpay') {
+                // Razorpay Logic (Existing)
+                var options = {
+                    "key": "rzp_live_Ri7PMF879mDGn1",
+                    "amount": window.paymentAmountINR * 100,
+                    "currency": "INR",
+                    "name": "HireMediaMind",
+                    "description": window.planInfo.name + " - " + paymentType,
+                    "image": "https://www.hiremediamind.com/logo.png",
+                    "handler": function (response) {
+                        verifyPayment(response.razorpay_payment_id, 'razorpay', 'succeeded');
+                    },
+                    "prefill": { "name": name, "email": email, "contact": phone },
+                    "theme": { "color": "#7C3AED" }
+                };
+                var rzp = new Razorpay(options);
+                rzp.open();
+            }
         });
-        
+
+        function verifyPayment(txId, gateway, status) {
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+            const planName = window.planInfo.name;
+
+            fetch('api/verify-payment.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    transactionId: txId,
+                    gateway: gateway,
+                    amount: window.paymentAmount,
+                    currency: currency,
+                    status: status,
+                    customerName: name,
+                    customerEmail: email,
+                    planName: planName,
+                    country: document.getElementById('country')?.value || 'Unknown' // Add country field if needed
+                })
+            })
+                .then(r => r.json())
+                .then(data => {
+                    alert('Payment Successful! Check your email for the invoice and contract.');
+                    window.location.href = '/thank-you.html';
+                });
+        }
+
         // Initialize on page load
         initPaymentPage();
     </script>
 </body>
-</html>
 
+</html>

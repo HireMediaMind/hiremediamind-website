@@ -1,61 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Primary Meta Tags -->
     <title>HireMediaMind - AI Automation & Performance Marketing Agency | Scale Your Business Globally</title>
     <meta name="title" content="HireMediaMind - AI Automation & Performance Marketing Agency | Scale Your Business">
-    <meta name="description" content="Leading AI automation & performance marketing agency helping businesses worldwide scale with Facebook Ads, Google Ads, and intelligent automation. Serving US, UK, UAE, Germany, Australia & globally.">
-    <meta name="keywords" content="AI automation agency, performance marketing agency, media buying agency, Facebook ads expert, Google ads management, AI chatbots, workflow automation, n8n automation, WhatsApp business automation, digital marketing agency USA, marketing agency UK, lead generation, ROAS optimization">
-    
+    <meta name="description"
+        content="Leading AI automation & performance marketing agency helping businesses worldwide scale with Facebook Ads, Google Ads, and intelligent automation. Serving US, UK, UAE, Germany, Australia & globally.">
+    <meta name="keywords"
+        content="AI automation agency, performance marketing agency, media buying agency, Facebook ads expert, Google ads management, AI chatbots, workflow automation, n8n automation, WhatsApp business automation, digital marketing agency USA, marketing agency UK, lead generation, ROAS optimization">
+
     <!-- Geo Targeting -->
     <meta name="geo.region" content="IN-DL">
     <meta name="geo.placename" content="New Delhi">
     <meta name="geo.position" content="28.6139;77.2090">
     <meta name="ICBM" content="28.6139, 77.2090">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.hiremediamind.com/">
     <meta property="og:title" content="HireMediaMind - AI Automation & Performance Marketing Agency">
-    <meta property="og:description" content="Scale your business with data-driven advertising and AI automation. Serving clients worldwide - US, UK, UAE, Germany, Australia & more.">
+    <meta property="og:description"
+        content="Scale your business with data-driven advertising and AI automation. Serving clients worldwide - US, UK, UAE, Germany, Australia & more.">
     <meta property="og:image" content="https://www.hiremediamind.com/og-image.jpg">
     <meta property="og:site_name" content="HireMediaMind">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.hiremediamind.com/">
     <meta property="twitter:title" content="HireMediaMind - AI Automation & Performance Marketing">
     <meta property="twitter:description" content="Scale your business with data-driven advertising and AI automation">
     <meta property="twitter:image" content="https://www.hiremediamind.com/twitter-image.jpg">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.hiremediamind.com/">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-     <!-- Preconnect for Performance -->
-     <link rel="preconnect" href="https://www.googletagmanager.com">
+
     <!-- Preconnect for Performance -->
-    <link rel="stylesheet" href="/styles/main.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
 
-     <!-- Optional small global CSS -->
-<style>
-body { margin:0; font-family:Inter,sans-serif; }
-</style>
-    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Inter, sans-serif;
+        }
+
+        /* Soft floating gradient blobs */
+        @keyframes float-slow {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translate3d(10px, -20px, 0) scale(1.05);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.6;
+            }
+        }
+
+        /* Tiny sparkles */
+        @keyframes sparkle {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: scale(0.8);
+                opacity: 0.2;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mobile menu hidden by default */
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
+
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//www.google-analytics.com">
-    
+
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
@@ -96,239 +152,49 @@ body { margin:0; font-family:Inter,sans-serif; }
         {
           "@type": "Country",
           "name": "Australia"
-        },
-        {
-          "@type": "Country",
-          "name": "India"
         }
       ],
       "sameAs": [
         "https://www.linkedin.com/company/hiremediamind",
         "https://twitter.com/hiremediamind"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-8429889303",
-        "contactType": "Customer Service",
-        "availableLanguage": ["English", "Hindi"],
-        "areaServed": "Worldwide"
-      },
-      "priceRange": "₹₹-₹₹₹",
-      "telephone": "+91-8429889303",
-      "email": "team.hiremediamind@gmail.com
-"
-    }
-    </script>
-    
-    <!-- Structured Data - Services -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Performance Marketing & AI Automation",
-      "provider": {
-        "@type": "Organization",
-        "name": "HireMediaMind"
-      },
-      "areaServed": "Worldwide",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Marketing & Automation Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Facebook & Instagram Ads Management"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Google Ads & PPC Management"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "AI Automation & Chatbots"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "WhatsApp Business Automation"
-            }
-          }
-        ]
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - FAQ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What makes HireMediaMind different from other agencies?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We're the only agency that combines performance marketing (Facebook Ads, Google Ads) with AI automation in one integrated solution. While others focus on just ads or just automation, we create systems where your advertising and automation work together—leads from ads are instantly qualified and nurtured by AI, creating a seamless growth engine."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How quickly will I see results?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most clients see initial improvements within 2-4 weeks. Ad campaigns typically show optimization results in 7-14 days, while AI automation workflows are usually live within 1-2 weeks. Full-scale results and ROI improvements are typically visible within 60-90 days as systems mature and data accumulates."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you work with businesses outside India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! We serve clients worldwide including the US, UK, UAE, Germany, Australia, and many other countries. Our team works across time zones and we're experienced with international markets, currencies, and compliance requirements."
-          }
-        }
       ]
     }
-    </script>
-    
-    <!-- Structured Data - Reviews/Testimonials -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "HireMediaMind",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "50",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Rajesh Kumar"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "HireMediaMind transformed our e-commerce business. Our ROAS went from 1.8x to 4.2x in just 3 months, and their AI automation handles 80% of customer inquiries automatically. Best investment we've made."
-        },
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": "Sarah Mitchell"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "As a SaaS startup, we needed to scale fast. HireMediaMind reduced our lead cost by 42% and increased conversion rates by 28%. Their AI automation cut our onboarding time in half. Incredible results!"
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-59QTQS7T');</script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        accent: '#10b981',
-                        'dark-blue': '#0f172a',
-                        'slate': '#1e293b',
-                        'light-blue': '#60a5fa',
-                        'purple': '#a78bfa',
-                        'pink': '#f472b6'
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' }
-                        }
-                    }
-                }
-            }
-        }
     </script>
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/hero-premium.css">
-    <link rel="stylesheet" href="styles/footer-premium.css">
-    <link rel="stylesheet" href="styles/contact-form.css">
-    <link rel="stylesheet" href="/styles/mobile-responsive.css">
-    
-    <!-- Performance: Preload critical assets -->
-    <link rel="preload" href="styles/main.css" as="style">
-    
-    
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-59QTQS7T');
+    </script>
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "p58wt71l17");
     </script>
-    
+
     <!-- Robots Meta -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    
+
     <!-- Additional SEO Meta Tags -->
     <meta name="author" content="HireMediaMind">
-    <meta name="theme-color" content="#7C3AED">
+    <meta name="theme-color" content="#14b8a6">
     <meta name="format-detection" content="telephone=yes">
-    
+
     <!-- Mobile App Meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="HireMediaMind">
-    
-    <!-- Verification Tags (Add when you have these accounts) -->
-    <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE"> -->
-    <!-- <meta name="facebook-domain-verification" content="YOUR_FACEBOOK_VERIFICATION_CODE"> -->
-    
-    <!-- Language Alternates for International SEO -->
-    <link rel="alternate" hreflang="en" href="https://www.hiremediamind.com/">
+
+    <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="en-us" href="https://www.hiremediamind.com/">
     <link rel="alternate" hreflang="en-gb" href="https://www.hiremediamind.com/">
     <link rel="alternate" hreflang="en-ae" href="https://www.hiremediamind.com/">
@@ -337,1574 +203,588 @@ body { margin:0; font-family:Inter,sans-serif; }
     <link rel="alternate" hreflang="x-default" href="https://www.hiremediamind.com/">
 </head>
 
-<body class="font-sans antialiased bg-white text-gray-800">
+<body class="bg-sky-50 text-slate-900">
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59QTQS7T"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59QTQS7T" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-50">
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-teal-500 text-white px-4 py-2 rounded-lg z-50">
         Skip to main content
     </a>
-    
-    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
-  <div class="container mx-auto px-4 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-        <img src="LOGO.png" alt="HireMediaMind Logo" class="header-logo-img" width="40" height="40">
-        <span class="text-xl font-bold gradient-text">HireMediaMind</span>
-      </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="/#services" class="text-gray-700 hover:text-primary font-medium transition-colors">Services</a>
-        <a href="/about-us.html" class="text-gray-700 hover:text-primary font-medium transition-colors">About Us</a>
-        <a href="/how-we-work" class="text-gray-700 hover:text-primary font-medium transition-colors">How We Work</a>
-        <a href="/#pricing" class="text-gray-700 hover:text-primary font-medium transition-colors">Pricing</a>
-        <a href="/#faq" class="text-gray-700 hover:text-primary font-medium transition-colors">FAQ</a>
-        
-        <!-- Currency Selector -->
-        <div class="relative">
-          <select id="currencySelector" class="appearance-none bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer">
-            <option value="USD">USD $</option>
-            <option value="GBP">GBP £</option>
-            <option value="EUR">EUR €</option>
-            <option value="AED">AED</option>
-            <option value="SGD">SGD</option>
-            <option value="AUD">AUD</option>
-            <option value="INR">INR ₹</option>
-          </select>
-        </div>
-        
-        <!-- Book a Call Button -->
-        <a href="#book-call" id="bookCallBtn" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 font-semibold transition-all shadow-md hover:shadow-lg">
-          Book a Call
-        </a>
-        
-        <!-- Get Free Audit Button -->
-        <a href="/#contact" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 font-medium transition-colors">
-        Get Free Audit
-    </a>
-</nav>
-       <!-- Mobile Menu Button -->
-  <button class="mobile-menu-button md:hidden text-gray-600" aria-label="Open menu">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-  </button>
-</div>
-</div>
-
-<!-- Mobile Menu - UPDATED TO MATCH DESKTOP -->
-<div class="mobile-menu hidden fixed inset-0 bg-white z-50 md:hidden">
-  <div class="p-6 space-y-6 h-full overflow-y-auto">
-    <div class="flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <img src="LOGO.png" alt="HireMediaMind Logo" class="header-logo-img" width="32" height="32">
-        <span class="text-xl font-bold gradient-text">HireMediaMind</span>
-      </div>
-      <button class="close-mobile-menu text-gray-600 p-2" aria-label="Close menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
-    <nav class="space-y-4">
-      <a href="/#services" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors py-3 border-b border-gray-100">Services</a>
-      <a href="/about-us.html" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors py-3 border-b border-gray-100">About Us</a>
-      <a href="/how-we-work" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors py-3 border-b border-gray-100">How We Work</a>
-      <a href="/#pricing" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors py-3 border-b border-gray-100">Pricing</a>
-      <a href="/#faq" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors py-3 border-b border-gray-100">FAQ</a>
-      
-      <!-- Currency Selector for Mobile -->
-      <div class="py-3 border-b border-gray-100">
-        <select class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm font-medium text-gray-700">
-          <option value="USD">USD $</option>
-          <option value="GBP">GBP £</option>
-          <option value="EUR">EUR €</option>
-          <option value="AED">AED</option>
-          <option value="SGD">SGD</option>
-          <option value="AUD">AUD</option>
-          <option value="INR">INR ₹</option>
-        </select>
-      </div>
-      
-      <a href="#book-call" class="block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg text-center font-semibold hover:opacity-90 transition-all">
-        Book a Call
-      </a>
-      
-      <a href="/#contact" class="block bg-primary text-white px-6 py-3 rounded-lg text-center font-medium hover:bg-primary/90 transition-colors">
-        Get Free Audit
-      </a>
-    </nav>
-  </div>
-</div>
-</header>
-
-    <!-- HEADER -->
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- PREMIUM HERO SECTION -->
-        <section class="hero-premium">
-            <!-- Animated Particles Background -->
-            <div class="hero-particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
-            
-            <!-- Hero Content -->
-            <div class="hero-content-premium">
-                <!-- Trust Badge -->
-                <div class="hero-badge">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Trusted by 50+ Businesses Across 15+ Countries</span>
-        </div>
-
-                <!-- Main Heading -->
-                <h1 class="hero-title-premium">
-                    We Run Your Paid Ads<br>
-                    <span class="gradient-text-premium">AND Automate Your Business</span>
-            </h1>
-
-                <!-- Subtitle - Clear Value Prop -->
-                <p class="hero-subtitle-premium">
-                    <strong>WHAT:</strong> We manage your Facebook & Google Ads + build AI automation workflows<br>
-                    <strong>HOW:</strong> Ads bring leads → AI instantly qualifies them → Automation nurtures → You close more deals<br>
-                    <strong>RESULT:</strong> 2-4x ROAS improvement in 60-90 days, with 80% less manual work
-            </p>
-
-                <!-- CTA Buttons -->
-                <div class="hero-cta-group">
-                    <a href="#book-call" id="bookCallBtnHero" class="cta-primary-premium">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        <span>Book Strategy Call</span>
-                    </a>
-                    <a href="#contact" class="cta-secondary-premium">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span>Get Free Audit</span>
+    <!-- Navbar -->
+    <header class="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto flex items-center justify-between py-4 px-4">
+            <a href="/" class="flex items-center gap-2">
+                <img src="LOGO.png" alt="HireMediaMind Logo" class="w-10 h-10">
+                <span
+                    class="text-xl font-bold tracking-tight bg-gradient-to-r from-sky-500 via-teal-500 to-amber-500 bg-clip-text text-transparent">
+                    HireMediaMind
+                </span>
             </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-600 items-center">
+                <a href="/" class="hover:text-teal-600">Home</a>
+                <a href="/#services" class="hover:text-teal-600">Services</a>
+                <a href="case-studies/" class="hover:text-teal-600">Case Studies</a>
+                <a href="about-us.html" class="hover:text-teal-600">About Us</a>
+                <a href="roas-calculator.html" class="hover:text-teal-600">ROAS Calculator</a>
+                <a href="pricing.html" class="hover:text-teal-600">Pricing</a>
+                <a href="/#faq" class="hover:text-teal-600">FAQ</a>
+
+                <!-- Currency Selector -->
+                <div class="relative">
+                    <select id="currencySelector"
+                        class="appearance-none bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer">
+                        <option value="USD">USD $</option>
+                        <option value="GBP">GBP £</option>
+                        <option value="EUR">EUR €</option>
+                        <option value="AED">AED</option>
+                        <option value="SGD">SGD</option>
+                        <option value="AUD">AUD</option>
+                        <option value="INR">INR ₹</option>
+                    </select>
+                </div>
+            </nav>
+
+            <!-- CTA Button Desktop -->
+            <a href="#book-call" id="bookCallBtn"
+                class="hidden md:inline-block bg-gradient-to-r from-teal-500 via-emerald-400 to-amber-400 text-white font-semibold text-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg">
+                Book Free Strategy Call
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button md:hidden text-slate-600 hover:text-teal-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
         </div>
 
-                <!-- Trust Indicators -->
-                <div class="hero-trust-indicators">
-                    <div class="trust-item">
-                        <svg fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>No Credit Card Required</span>
-                    </div>
-                    <div class="trust-item">
-                        <svg fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>30-Minute Strategy Session</span>
-                    </div>
-                    <div class="trust-item">
-                        <svg fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>Custom Growth Roadmap</span>
-                    </div>
-    </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden bg-white border-t border-slate-200">
+            <nav class="px-4 py-4 space-y-3">
+                <a href="/" class="block text-slate-700 hover:text-teal-600 py-2">Home</a>
+                <a href="/#services" class="block text-slate-700 hover:text-teal-600 py-2">Services</a>
+                <a href="case-studies/" class="block text-slate-700 hover:text-teal-600 py-2">Case Studies</a>
+                <a href="about-us.html" class="block text-slate-700 hover:text-teal-600 py-2">About Us</a>
+                <a href="roas-calculator.html" class="block text-slate-700 hover:text-teal-600 py-2">ROAS
+                    Calculator</a>
+                <a href="pricing.html" class="block text-slate-700 hover:text-teal-600 py-2">Pricing</a>
+                <a href="/#faq" class="block text-slate-700 hover:text-teal-600 py-2">FAQ</a>
 
-                <!-- Stats Counter -->
-                <div class="hero-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Global Clients</div>
+
+
+                <a href="#book-call"
+                    class="block bg-gradient-to-r from-teal-500 via-emerald-400 to-amber-400 text-white font-semibold px-4 py-3 rounded-full text-center shadow-md mt-4">
+                    Book Free Strategy Call
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="relative overflow-hidden">
+            <!-- Gradient background -->
+            <div class="absolute inset-0 bg-gradient-to-b from-sky-50 via-emerald-50 to-amber-50"></div>
+
+            <!-- Floating blobs -->
+            <div class="pointer-events-none absolute -top-20 -right-24 w-72 h-72 bg-gradient-to-br from-sky-300/70 via-teal-200/60 to-amber-200/70 blur-3xl opacity-80"
+                style="animation: float-slow 16s ease-in-out infinite;"></div>
+            <div class="pointer-events-none absolute -bottom-28 -left-16 w-80 h-80 bg-gradient-to-tr from-teal-200/70 via-sky-200/60 to-rose-100/70 blur-3xl opacity-70"
+                style="animation: float-slow 20s ease-in-out infinite;"></div>
+
+            <!-- Sparkles -->
+            <span class="pointer-events-none absolute top-16 right-10 w-2 h-2 rounded-full bg-amber-300 shadow-lg"
+                style="animation: sparkle 3.5s ease-in-out infinite;"></span>
+            <span class="pointer-events-none absolute top-32 right-40 w-1.5 h-1.5 rounded-full bg-sky-300 shadow"
+                style="animation: sparkle 4.2s ease-in-out infinite;"></span>
+            <span class="pointer-events-none absolute bottom-24 left-32 w-2 h-2 rounded-full bg-teal-300 shadow"
+                style="animation: sparkle 3.8s ease-in-out infinite;"></span>
+
+            <div class="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-10 py-16 md:py-20 px-4">
+                <div class="flex flex-col justify-center">
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-teal-500 mb-3">
+                        Performance Marketing • AI Automation
+                    </p>
+                    <h1 class="text-3xl md:text-5xl font-semibold leading-tight mb-4 text-slate-900">
+                        Profit-Driven Ad & Automation Systems
+                        <span
+                            class="bg-gradient-to-r from-teal-500 via-sky-500 to-amber-500 bg-clip-text text-transparent">
+                            for Growing Brands.
+                        </span>
+                    </h1>
+                    <p class="text-slate-600 mb-6 text-sm md:text-base max-w-xl">
+                        We combine performance marketing and AI automations to turn cold traffic into booked calls,
+                        repeat customers, and predictable revenue – even while you sleep.
+                    </p>
+                    <div class="flex flex-wrap gap-3 items-center mb-4">
+                        <a href="#book-call" id="bookCallBtnHero"
+                            class="bg-gradient-to-r from-teal-500 via-emerald-400 to-amber-400 text-white font-semibold px-6 py-3 rounded-full text-sm shadow-md hover:shadow-lg">
+                            Book Free Strategy Call
+                        </a>
+                        <a href="roas-calculator.html"
+                            class="border border-teal-200 bg-white/70 text-teal-700 px-6 py-3 rounded-full text-sm hover:border-teal-400 shadow-sm">
+                            Try ROAS Calculator
+                        </a>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Countries Served</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">200%</div>
-                        <div class="stat-label">Avg. ROAS Increase</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">4.9/5</div>
-                        <div class="stat-label">Client Rating</div>
+                    <p class="text-[11px] text-slate-500">
+                        Trusted by service businesses, coaches & online brands worldwide.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-center">
+                    <div
+                        class="w-full max-w-md bg-white/80 border border-slate-100 rounded-3xl p-5 shadow-xl backdrop-blur">
+                        <p class="text-sm text-slate-600 mb-3 font-medium">Growth Snapshot (Example)</p>
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div
+                                class="bg-gradient-to-br from-sky-50 to-teal-50 rounded-2xl p-3 border border-slate-100 shadow-sm">
+                                <p class="text-slate-500 mb-1">Ad Spend (30 days)</p>
+                                <p class="text-lg font-semibold text-slate-900">$8,420</p>
+                            </div>
+                            <div
+                                class="bg-gradient-to-br from-emerald-50 to-amber-50 rounded-2xl p-3 border border-slate-100 shadow-sm">
+                                <p class="text-slate-500 mb-1">Revenue Generated</p>
+                                <p class="text-lg font-semibold text-slate-900">$32,910</p>
+                            </div>
+                            <div
+                                class="bg-gradient-to-br from-sky-50 to-emerald-50 rounded-2xl p-3 border border-slate-100 shadow-sm">
+                                <p class="text-slate-500 mb-1">Booked Calls</p>
+                                <p class="text-lg font-semibold text-slate-900">89</p>
+                            </div>
+                            <div
+                                class="bg-gradient-to-br from-emerald-50 to-amber-50 rounded-2xl p-3 border border-slate-100 shadow-sm">
+                                <p class="text-slate-500 mb-1">Active Automations</p>
+                                <p class="text-lg font-semibold text-slate-900">24</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-[11px] text-slate-500">
+                            Example metrics for illustration. Your exact numbers depend on your offer, audience and ad
+                            spend.
+                        </p>
                     </div>
                 </div>
             </div>
-</section>
+        </section>
 
-        <!-- HERO -->
-        
-        <!-- HOW IT WORKS - Clear Visual Flow -->
-        <section class="py-20 bg-white">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">How It Works: The Complete Growth System</h2>
-                    <p class="text-xl text-gray-600">See exactly how ads and automation work together to grow your business</p>
-                </div>
-
-                <!-- Visual Flow Diagram -->
-                <div class="grid md:grid-cols-5 gap-4 mb-12">
-                    <!-- Step 1 -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                            <span class="text-2xl font-bold text-white">1</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">We Run Your Ads</h3>
-                        <p class="text-sm text-gray-600">Facebook & Google Ads optimized daily</p>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="hidden md:flex items-center justify-center">
-                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);">
-                            <span class="text-2xl font-bold text-white">2</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">Leads Come In</h3>
-                        <p class="text-sm text-gray-600">Qualified prospects from your ads</p>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="hidden md:flex items-center justify-center">
-                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                            <span class="text-2xl font-bold text-white">3</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">AI Qualifies Instantly</h3>
-                        <p class="text-sm text-gray-600">Chatbot asks questions, scores leads automatically</p>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="hidden md:flex items-center justify-center">
-                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
-                            <span class="text-2xl font-bold text-white">4</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">Automation Nurtures</h3>
-                        <p class="text-sm text-gray-600">Email sequences, follow-ups, data sync - all automated</p>
-                    </div>
-
-                    <!-- Arrow -->
-                    <div class="hidden md:flex items-center justify-center">
-                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </div>
-
-                    <!-- Step 5 -->
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                            <span class="text-2xl font-bold text-white">5</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 mb-2">You Close More Deals</h3>
-                        <p class="text-sm text-gray-600">Higher conversion rates, lower costs, more revenue</p>
+        <!-- Who We Help -->
+        <section id="services" class="border-t border-slate-100 bg-white">
+            <div class="max-w-6xl mx-auto py-14 px-4">
+                <div class="flex justify-between items-end gap-4 mb-8">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-semibold mb-2 text-slate-900">Who We Help</h2>
+                        <p class="text-sm text-slate-600 max-w-xl">
+                            We work with service businesses, coaches and online brands that are ready to grow with
+                            predictable systems.
+                        </p>
                     </div>
                 </div>
-
-                <!-- Concrete Examples -->
-                <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Real Automation Examples</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Example 1 -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-2">AI Customer Service Chatbot</h4>
-                            <p class="text-gray-600 text-sm">Handles 80% of customer questions 24/7. Answers FAQs, qualifies leads, books appointments automatically.</p>
-                        </div>
-
-                        <!-- Example 2 -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-2">Automated Lead Qualification</h4>
-                            <p class="text-gray-600 text-sm">AI asks qualifying questions, scores leads, routes hot prospects to sales. Saves 20 hours/week.</p>
-                        </div>
-
-                        <!-- Example 3 -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-2">Smart Email Sequences</h4>
-                            <p class="text-gray-600 text-sm">Automated follow-ups based on behavior. Abandoned cart emails, welcome series, re-engagement campaigns.</p>
-                        </div>
-
-                        <!-- Example 4 -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                                </svg>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-2">Data Sync Automation</h4>
-                            <p class="text-gray-600 text-sm">All platforms connected automatically. CRM, email, ads, analytics - no manual data entry needed.</p>
-                        </div>
-
-                        <!-- Example 5 -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-2">Automated Reporting</h4>
-                            <p class="text-gray-600 text-sm">Daily/weekly reports sent automatically. ROAS, conversions, costs - all in one dashboard.</p>
-                        </div>
-
-                        <!-- Example 6 -->
-                        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-2">Workflow Automation</h4>
-                            <p class="text-gray-600 text-sm">Connect all your tools seamlessly. When X happens, automatically do Y. No coding required.</p>
-                        </div>
+                <div class="grid md:grid-cols-4 gap-6 text-sm">
+                    <div class="bg-sky-50/70 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <h3 class="font-semibold mb-2 text-slate-900">Local & Service Businesses</h3>
+                        <p class="text-slate-600 text-xs mb-2">Clinics, salons, home services, legal, accounting, etc.
+                        </p>
+                        <p class="text-slate-500 text-xs">More qualified leads and appointments, less manual chasing.
+                        </p>
+                    </div>
+                    <div class="bg-emerald-50/70 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <h3 class="font-semibold mb-2 text-slate-900">Coaches & Course Creators</h3>
+                        <p class="text-slate-600 text-xs mb-2">High-ticket programs, group coaching & online courses.
+                        </p>
+                        <p class="text-slate-500 text-xs">Fill your calendar and programs with the right clients.</p>
+                    </div>
+                    <div class="bg-teal-50/70 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <h3 class="font-semibold mb-2 text-slate-900">Agencies & Consultants</h3>
+                        <p class="text-slate-600 text-xs mb-2">Marketing, creative, IT and specialist agencies.</p>
+                        <p class="text-slate-500 text-xs">Scale your own lead flow or white-label our systems.</p>
+                    </div>
+                    <div class="bg-amber-50/70 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <h3 class="font-semibold mb-2 text-slate-900">Online & Digital Brands</h3>
+                        <p class="text-slate-600 text-xs mb-2">Ecommerce, SaaS and info products.</p>
+                        <p class="text-slate-500 text-xs">Improve ROAS, AOV and retention with smarter funnels.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- CTA -->
-                <div class="text-center mt-12">
-                    <a href="#contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        See How This Works For Your Business
+        <!-- Core Services Overview -->
+        <section class="bg-gradient-to-b from-sky-50 via-white to-emerald-50 border-t border-slate-100">
+            <div class="max-w-6xl mx-auto py-14 px-4">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-semibold mb-2 text-slate-900">What We Do</h2>
+                        <p class="text-sm text-slate-600 max-w-xl">
+                            We blend performance marketing with AI-powered automations to build complete growth systems.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div class="bg-white border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 shadow-md">
+                        <span
+                            class="inline-flex items-center justify-center w-9 h-9 rounded-2xl bg-sky-100 text-sky-500 text-lg">📈</span>
+                        <h3 class="text-lg font-semibold mb-1 text-slate-900">Performance Marketing</h3>
+                        <p class="text-slate-600 text-sm">
+                            Done-for-you campaigns that turn ad spend into measurable profit.
+                        </p>
+                        <ul class="mt-2 space-y-1.5 text-slate-600 text-xs list-disc list-inside">
+                            <li>Meta Ads (Facebook & Instagram)</li>
+                            <li>Google Search & YouTube Ads</li>
+                            <li>Landing pages & funnels that actually convert</li>
+                            <li>Creative testing and performance dashboards</li>
+                        </ul>
+                        <a href="pricing.html" class="mt-4 text-xs font-semibold text-teal-600 hover:underline">
+                            View Pricing & Plans →
+                        </a>
+                    </div>
+                    <div class="bg-white border border-slate-100 rounded-3xl p-6 flex flex-col gap-3 shadow-md">
+                        <span
+                            class="inline-flex items-center justify-center w-9 h-9 rounded-2xl bg-teal-100 text-teal-500 text-lg">🤖</span>
+                        <h3 class="text-lg font-semibold mb-1 text-slate-900">AI Automations</h3>
+                        <p class="text-slate-600 text-sm">
+                            Automate lead capture, follow-up and booking so no opportunity is left behind.
+                        </p>
+                        <ul class="mt-2 space-y-1.5 text-slate-600 text-xs list-disc list-inside">
+                            <li>WhatsApp & email follow-up sequences</li>
+                            <li>Lead qualification & routing flows</li>
+                            <li>CRM integration and lead tracking</li>
+                            <li>Appointment and payment automations</li>
+                        </ul>
+                        <a href="pricing.html" class="mt-4 text-xs font-semibold text-teal-600 hover:underline">
+                            View Pricing & Plans →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results / Social Proof -->
+        <section class="bg-white border-t border-slate-100">
+            <div class="max-w-6xl mx-auto py-14 px-4">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-semibold mb-2 text-slate-900">Results & Examples</h2>
+                        <p class="text-sm text-slate-600 max-w-xl">
+                            Every business is different, but the goal is always the same: trackable, profitable growth.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 text-xs">
+                    <div class="bg-sky-50/70 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-[11px] text-teal-500 font-semibold mb-1 uppercase tracking-wide">Coaching
+                            Business (US)</p>
+                        <p class="text-slate-900 mb-2 font-semibold text-sm">From inconsistent leads to 30+ qualified
+                            calls/month.</p>
+                        <ul class="text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Meta + YouTube ads</li>
+                            <li>Lead-to-WhatsApp automations</li>
+                            <li>Pipeline tracking dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="bg-emerald-50/70 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-[11px] text-teal-500 font-semibold mb-1 uppercase tracking-wide">Local Clinic
+                            (Europe)</p>
+                        <p class="text-slate-900 mb-2 font-semibold text-sm">Reduced cost per lead by 35% within 60
+                            days.</p>
+                        <ul class="text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Google Search campaigns</li>
+                            <li>Landing page optimization</li>
+                            <li>Automated appointment reminders</li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50/70 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-[11px] text-teal-500 font-semibold mb-1 uppercase tracking-wide">Online Course
+                            Creator (Global)</p>
+                        <p class="text-slate-900 mb-2 font-semibold text-sm">Added 18% extra revenue from "old leads".
+                        </p>
+                        <ul class="text-slate-600 space-y-1 list-disc list-inside">
+                            <li>Reactivation campaigns</li>
+                            <li>Email & WhatsApp flows</li>
+                            <li>Upsell & down-sell automations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <a href="case-studies/" class="text-xs font-semibold text-teal-600 hover:underline">
+                        View More Case Studies →
                     </a>
                 </div>
             </div>
         </section>
-        
-        <!-- Trust Badges Section -->
-        <section class="py-12 bg-gradient-to-r from-gray-50 to-blue-50 border-y border-gray-200">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-8">
-            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6">Trusted by Industry Leaders</p>
-        </div>
-        
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <!-- Meta Partner Badge -->
-            <div class="flex items-center space-x-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-                <div>
-                    <p class="text-xs font-semibold text-gray-600">Meta</p>
-                    <p class="text-xs text-gray-500">Partner</p>
-                </div>
-            </div>
-            
-            <!-- Google Partner Badge -->
-            <div class="flex items-center space-x-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                <svg class="w-8 h-8" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                </svg>
-                <div>
-                    <p class="text-xs font-semibold text-gray-600">Google</p>
-                    <p class="text-xs text-gray-500">Partner</p>
-                </div>
-            </div>
-            
-            <!-- SOC 2 Compliant -->
-            <div class="flex items-center space-x-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-                <div>
-                    <p class="text-xs font-semibold text-gray-600">SOC 2</p>
-                    <p class="text-xs text-gray-500">Compliant</p>
-                </div>
-            </div>
-            
-            <!-- ISO Certified -->
-            <div class="flex items-center space-x-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <div>
-                    <p class="text-xs font-semibold text-gray-600">ISO</p>
-                    <p class="text-xs text-gray-500">Certified</p>
-                </div>
-            </div>
-            
-            <!-- 50+ Clients -->
-            <div class="flex items-center space-x-2 bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
-                    <span class="text-white font-bold text-sm">50+</span>
-                </div>
-                <div>
-                    <p class="text-xs font-semibold text-gray-600">Global</p>
-                    <p class="text-xs text-gray-500">Clients</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        
-        <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">The Growth Gap Most Businesses Face</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="p-6 bg-red-50 rounded-2xl hover-lift">
-                    <h3 class="text-xl font-bold text-red-700 mb-4">❌ Traditional Approach</h3>
-                    <ul class="space-y-3 text-red-600">
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Ads bring leads, but team can't handle volume</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Manual processes slow down growth</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Data scattered across platforms</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Scaling means hiring more people</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="p-6 bg-green-50 rounded-2xl hover-lift">
-                    <h3 class="text-xl font-bold text-green-700 mb-4">✅ Our Integrated Solution</h3>
-                    <ul class="space-y-3 text-green-600">
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Ads bring leads → AI instantly qualifies them</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Automated workflows handle 80% of tasks</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Unified data for smart decisions</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <span>•</span>
-                            <span>Scale without proportional costs</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        <!-- PROBLEM -->
-        
-        <section id="services" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Integrated Growth Services</h2>
-            <p class="text-xl text-gray-600">Two powerful engines working together</p>
-        </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <!-- Media Buying -->
-            <div class="glass rounded-2xl p-8 hover-lift service-card">
-                <div class="flex items-center mb-6">
-                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mr-6">
-                        <span class="text-2xl">🎯</span>
-                    </div>
+        <!-- Process -->
+        <section class="bg-gradient-to-r from-sky-50 via-emerald-50 to-amber-50 border-t border-slate-100">
+            <div class="max-w-6xl mx-auto py-14 px-4">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
                     <div>
-                        <h3 class="text-2xl font-bold text-gray-900">Performance Marketing</h3>
-                        <p class="text-gray-600">Data-driven customer acquisition</p>
+                        <h2 class="text-2xl md:text-3xl font-semibold mb-2 text-slate-900">How We Work Together</h2>
+                        <p class="text-sm text-slate-600 max-w-xl">
+                            Simple, transparent and focused on performance – not vanity metrics.
+                        </p>
                     </div>
                 </div>
-                <div class="mt-6">
-                    <a href="/services/performance-marketing.html" class="text-primary font-semibold hover:underline inline-flex items-center gap-2">
-                        Learn More
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <div class="space-y-4">
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">Facebook & Instagram Ads</span>
-                            <span class="text-sm text-gray-500">Daily optimization, A/B testing, audience targeting - we manage everything</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
+                <div class="grid md:grid-cols-4 gap-6 text-xs">
+                    <div class="bg-white/80 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-[11px] text-teal-500 mb-1 font-semibold uppercase tracking-wide">Step 1</p>
+                        <h3 class="font-semibold mb-2 text-slate-900">Discovery & Audit</h3>
+                        <p class="text-slate-600">We understand your offer, numbers and current funnel.</p>
                     </div>
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">Google Ads & PPC</span>
-                            <span class="text-sm text-gray-500">Search, Display, Shopping ads - optimized for maximum ROAS</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
+                    <div class="bg-white/80 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-[11px] text-teal-500 mb-1 font-semibold uppercase tracking-wide">Step 2</p>
+                        <h3 class="font-semibold mb-2 text-slate-900">Strategy Blueprint</h3>
+                        <p class="text-slate-600">We design your ad strategy, funnel and automation map.</p>
                     </div>
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">Conversion Rate Optimization</span>
-                            <span class="text-sm text-gray-500">Landing page optimization, funnel improvements, testing strategies</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
+                    <div class="bg-white/80 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-[11px] text-teal-500 mb-1 font-semibold uppercase tracking-wide">Step 3</p>
+                        <h3 class="font-semibold mb-2 text-slate-900">Build & Launch</h3>
+                        <p class="text-slate-600">We implement campaigns, creatives, tracking and workflows.</p>
                     </div>
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">Advanced Analytics & Reporting</span>
-                            <span class="text-sm text-gray-500">Daily/weekly reports, ROAS tracking, automated dashboards</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
+                    <div class="bg-white/80 border border-slate-100 rounded-2xl p-5 shadow-sm">
+                        <p class="text-[11px] text-teal-500 mb-1 font-semibold uppercase tracking-wide">Step 4</p>
+                        <h3 class="font-semibold mb-2 text-slate-900">Optimize & Scale</h3>
+                        <p class="text-slate-600">We track performance, scale what works, and cut what doesn't.</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- AI Automation -->
-            <div class="glass rounded-2xl p-8 hover-lift service-card">
-                <div class="flex items-center mb-6">
-                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mr-6">
-                        <span class="text-2xl">🤖</span>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-900">AI Automation</h3>
-                        <p class="text-gray-600">Intelligent workflow systems that handle repetitive tasks automatically</p>
-                    </div>
+        <!-- FAQ Section -->
+        <section id="faq" class="bg-white border-t border-slate-100">
+            <div class="max-w-4xl mx-auto py-14 px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-2 text-slate-900">Frequently Asked Questions</h2>
+                    <p class="text-sm text-slate-600">
+                        Quick answers to common questions about our services.
+                    </p>
                 </div>
-                <div class="mt-6">
-                    <a href="/services/ai-automation.html" class="text-primary font-semibold hover:underline inline-flex items-center gap-2">
-                        Learn More
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-                
                 <div class="space-y-4">
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">AI Chatbot & Voice Agents</span>
-                            <span class="text-sm text-gray-500">Handles 80% of customer questions 24/7, qualifies leads automatically</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
-                    </div>
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">n8n Workflow Automation</span>
-                            <span class="text-sm text-gray-500">Connect all your tools - when X happens, automatically do Y</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
-                    </div>
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">WhatsApp Business API</span>
-                            <span class="text-sm text-gray-500">Automated messaging, order confirmations, customer support</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
-                    </div>
-                    <div class="flex items-start justify-between p-4 bg-white rounded-xl border">
-                        <div>
-                            <span class="font-medium block mb-1">CRM & Data Sync</span>
-                            <span class="text-sm text-gray-500">All platforms connected - no manual data entry needed</span>
-                        </div>
-                        <span class="text-green-600 font-semibold ml-4">✓</span>
-                    </div>
+                    <details class="bg-sky-50/50 border border-slate-100 rounded-2xl p-5">
+                        <summary class="font-semibold text-slate-900 cursor-pointer">What results can I expect?
+                        </summary>
+                        <p class="text-slate-600 text-sm mt-3">Typically, clients see 2-4x ROAS improvement within 60-90
+                            days, with 80% less manual work through automation.</p>
+                    </details>
+                    <details class="bg-sky-50/50 border border-slate-100 rounded-2xl p-5">
+                        <summary class="font-semibold text-slate-900 cursor-pointer">Do you work with my industry?
+                        </summary>
+                        <p class="text-slate-600 text-sm mt-3">We work with service businesses, coaches, consultants,
+                            e-commerce, and SaaS companies worldwide.</p>
+                    </details>
+                    <details class="bg-sky-50/50 border border-slate-100 rounded-2xl p-5">
+                        <summary class="font-semibold text-slate-900 cursor-pointer">What's included in your service?
+                        </summary>
+                        <p class="text-slate-600 text-sm mt-3">Full ad management (Meta & Google), AI automation setup,
+                            landing pages, tracking, and ongoing optimization.</p>
+                    </details>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Integration Benefit -->
-        <div class="text-center mt-12">
-            <div class="bg-primary/10 rounded-2xl p-8 max-w-2xl mx-auto">
-                <h3 class="text-2xl font-bold text-primary mb-4">1+1=3 Effect</h3>
-                <p class="text-gray-700 text-lg mb-4">
-                    When advertising and automation work together, you get more than the sum of their parts. 
-                    <span class="font-semibold">Leads convert faster, costs drop, and revenue scales exponentially.</span>
+        <!-- Contact Form -->
+        <section id="contact" class="border-t border-slate-100 bg-gradient-to-b from-sky-50 to-white">
+            <div class="max-w-4xl mx-auto py-14 px-4">
+                <div class="text-center mb-8">
+                    <p class="text-xs font-semibold uppercase tracking-[0.25em] text-teal-500 mb-3">
+                        Get In Touch
+                    </p>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-3 text-slate-900">
+                        Ready to Scale Your Business?
+                    </h2>
+                    <p class="text-sm text-slate-600 mb-6 max-w-2xl mx-auto">
+                        Fill out the form below and we'll get back to you within 24 hours.
+                    </p>
+                </div>
+
+                <form id="contactForm" action="api/submit-lead.php" method="POST"
+                    class="max-w-xl mx-auto bg-white border border-slate-100 rounded-3xl p-8 shadow-lg">
+                    <input type="hidden" name="csrf_token" id="csrf_token">
+                    <input type="hidden" name="website_url" value="">
+                    <input type="hidden" name="service" value="General Inquiry">
+                    <input type="hidden" name="page_source" value="">
+                    <input type="hidden" name="country" id="country">
+                    <input type="hidden" name="city" id="city">
+                    <input type="hidden" name="region" id="region">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Name *</label>
+                            <input type="text" name="name" id="name" required minlength="2"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-2 outline-none focus:border-teal-400">
+                            <span class="text-red-500 text-xs hidden" id="name-error">Please enter at least 2
+                                characters</span>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Email *</label>
+                            <input type="email" name="email" id="email" required
+                                class="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-2 outline-none focus:border-teal-400">
+                            <span class="text-red-500 text-xs hidden" id="email-error">Please enter a valid email</span>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Phone</label>
+                            <input type="tel" name="phone" id="phone" pattern="[0-9+\-\s()]*"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-2 outline-none focus:border-teal-400">
+                            <span class="text-red-500 text-xs hidden" id="phone-error">Please enter a valid phone
+                                number</span>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Company</label>
+                            <input type="text" name="business" id="business"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-full px-4 py-2 outline-none focus:border-teal-400">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Message *</label>
+                            <textarea name="message" id="message" rows="4" required minlength="10"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-2 outline-none focus:border-teal-400"></textarea>
+                            <span class="text-red-500 text-xs hidden" id="message-error">Please enter at least 10
+                                characters</span>
+                        </div>
+                        <button type="submit" id="submitBtn"
+                            class="w-full bg-gradient-to-r from-teal-500 via-emerald-400 to-amber-400 text-white font-semibold py-3 rounded-full shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span id="btnText">Send Message</span>
+                            <span id="btnLoading" class="hidden">Sending...</span>
+                        </button>
+                        <div id="formMessage" class="mt-4 p-3 rounded-lg hidden"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section id="book-call" class="border-t border-slate-100 bg-white">
+            <div class="max-w-4xl mx-auto py-14 px-4 text-center">
+                <h2 class="text-2xl md:text-3xl font-semibold mb-3 text-slate-900">
+                    Ready to Build a Growth System, Not Just Run Ads?
+                </h2>
+                <p class="text-sm text-slate-600 mb-6 max-w-2xl mx-auto">
+                    Let's map out your performance strategy, automations and numbers – and see if HireMediaMind is the
+                    right fit to help you scale.
                 </p>
-                <a href="/services/integrated-solution.html" class="text-primary font-semibold hover:underline inline-flex items-center gap-2">
-                    Learn About Our Integrated Solution
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+                <a href="https://wa.me/918429889303?text=Hi,%20I%27d%20like%20to%20schedule%20a%20free%20strategy%20call."
+                    class="bg-gradient-to-r from-teal-500 via-emerald-400 to-amber-400 text-white font-semibold px-7 py-3 rounded-full text-sm hover:shadow-lg inline-block mb-3">
+                    Book Your Free Strategy Call
                 </a>
+                <p class="text-[11px] text-slate-500">
+                    No pressure, no long pitch. Just a focused conversation about your growth.
+                </p>
             </div>
-        </div>
-    </div>
-</section>
-        <!-- SERVICES -->
-        
-        <section id="process" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our 4-Step Growth Process</h2>
-            <p class="text-xl text-gray-600">Proven framework for predictable results</p>
-        </div>
-
-        <div class="max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 hover-lift">
-                        <span class="text-2xl font-bold text-primary">1</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Audit & Strategy</h3>
-                    <p class="text-gray-600">Deep dive analysis and custom growth roadmap</p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 hover-lift">
-                        <span class="text-2xl font-bold text-secondary">2</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Implementation</h3>
-                    <p class="text-gray-600">Set up advertising + automation systems</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 hover-lift">
-                        <span class="text-2xl font-bold text-accent">3</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Optimization</h3>
-                    <p class="text-gray-600">Continuous testing and improvement</p>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 hover-lift shadow-lg" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);">
-                        <span class="text-2xl font-bold text-white">4</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Scale</h3>
-                    <p class="text-gray-600">Expand winning strategies systematically</p>
-                </div>
-            </div>
-
-            <!-- CTA after process -->
-            <div class="text-center mt-12">
-                <a href="#contact" class="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary/90 transition-colors text-lg inline-block hover-lift">
-                    Start With Free Audit
-                </a>
-                <p class="text-gray-500 mt-4">No credit card required • 30-minute call • Custom growth plan</p>
-            </div>
-        </div>
-    </div>
-</section>
-        <!-- PROCESS -->
-        
-        <section id="results" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Real Business Results</h2>
-            <p class="text-xl text-gray-600">Across industries and business models</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <!-- E-commerce Case -->
-            <div class="bg-white rounded-2xl p-6 hover-lift border border-gray-200">
-                <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center mb-4">
-                    <span class="text-xl">🛒</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">E-commerce Brand</h3>
-                <p class="text-gray-600 mb-4">Fashion accessories store</p>
-                <div class="space-y-2 text-sm">
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">ROAS:</span>
-                        <span class="font-semibold text-green-600">1.8x → 4.2x</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Order Value:</span>
-                        <span class="font-semibold text-green-600">+35%</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Support Tickets:</span>
-                        <span class="font-semibold text-green-600">-70%</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SaaS Case -->
-            <div class="bg-white rounded-2xl p-6 hover-lift border border-gray-200">
-                <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
-                    <span class="text-xl">💻</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">SaaS Startup</h3>
-                <p class="text-gray-600 mb-4">Project management tool</p>
-                <div class="space-y-2 text-sm">
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Lead Cost:</span>
-                        <span class="font-semibold text-green-600">-42%</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Conversion Rate:</span>
-                        <span class="font-semibold text-green-600">+28%</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Onboarding Time:</span>
-                        <span class="font-semibold text-green-600">-65%</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Local Business Case -->
-            <div class="bg-white rounded-2xl p-6 hover-lift border border-gray-200">
-                <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
-                    <span class="text-xl">🏢</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Local Service</h3>
-                <p class="text-gray-600 mb-4">Dental clinic chain</p>
-                <div class="space-y-2 text-sm">
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Cost Per Lead:</span>
-                        <span class="font-semibold text-green-600">₹850 → ₹280</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Appointments:</span>
-                        <span class="font-semibold text-green-600">+40%</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-600">Staff Time Saved:</span>
-                        <span class="font-semibold text-green-600">15h/week</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        <!-- RESULTS -->
-        
-        <section id="pricing" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Transparent Pricing</h2>
-            <p class="text-xl text-gray-600 mb-6">Flexible plans for businesses at every stage</p>
-            <!-- Currency Notice -->
-            <p class="text-sm text-gray-500">All prices shown in <span id="currencyDisplay" class="font-semibold text-gray-700">USD</span>. Select your preferred currency above.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-
-            <!-- Starter Plan -->
-            <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover-lift">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Starter</h3>
-
-                <div class="mb-6">
-                    <span id="starterPrice" class="text-4xl font-bold text-gray-900">$500</span>
-                    <span class="text-gray-600">/month</span>
-                </div>
-
-                <ul class="space-y-4 mb-8">
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Basic Ad Management</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Weekly Performance Reports</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Basic Tracking Setup</span>
-                    </li>
-                </ul>
-
-                <!-- Starter Plan CTA -->
-                <a href="#" id="starterPlanBtn" 
-                   class="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition shadow-md hover:shadow-lg">
-                    Get Started
-                </a>
-
-            </div>
-
-            <!-- Growth Plan -->
-            <div class="bg-white rounded-2xl p-8 border-2 border-primary shadow-xl hover-lift relative">
-
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span class="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
-                        Most Popular
-                    </span>
-                </div>
-
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Growth</h3>
-
-                <div class="mb-6">
-                    <span id="growthPrice" class="text-4xl font-bold text-gray-900">$1,200</span>
-                    <span class="text-gray-600">/month</span>
-                </div>
-
-                <ul class="space-y-4 mb-8">
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Advanced Ad Management</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>AI Automation Workflows</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Daily Optimization</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Comprehensive Analytics</span>
-                    </li>
-                </ul>
-
-                <!-- Growth Plan CTA -->
-                <a href="#" id="growthPlanBtn" 
-                   class="block w-full bg-primary text-white text-center py-3 rounded-lg font-semibold hover:bg-primary/90 transition shadow-md hover:shadow-lg">
-                    Get Started
-                </a>
-
-            </div>
-
-            <!-- Premium Plan -->
-            <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover-lift">
-
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Premium</h3>
-
-                <div class="mb-6">
-                    <span id="premiumPrice" class="text-4xl font-bold text-gray-900">$3,000+</span>
-                    <span class="text-gray-600">/month</span>
-                </div>
-
-                <ul class="space-y-4 mb-8">
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Enterprise Ad Management</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Custom AI Solutions</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Dedicated Account Manager</span>
-                    </li>
-
-                    <li class="flex items-center space-x-3">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" 
-                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>24/7 Priority Support</span>
-                    </li>
-                </ul>
-
-                <!-- Premium Plan CTA -->
-                <a href="#" id="premiumPlanBtn" 
-                   class="block w-full bg-gray-900 text-white text-center py-3 rounded-lg font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-lg">
-                    Get Started
-                </a>
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-        <!-- PRICING -->
-        
-        <!-- TESTIMONIALS -->
-        <section id="testimonials" class="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-            <p class="text-xl text-gray-600">Trusted by businesses worldwide</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <!-- Testimonial 1 -->
-            <div class="bg-white rounded-2xl p-6 shadow-lg hover-lift">
-                <div class="flex items-center mb-4">
-                    <div class="flex text-yellow-400 mb-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                </div>
-                <p class="text-gray-700 mb-4 italic">"HireMediaMind transformed our e-commerce business. Our ROAS increased from 1.8x to 4.2x in just 3 months, and their AI automation handles 80% of customer inquiries automatically. The best investment we've made for scaling."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold mr-3">
-                        RK
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-900">Rajesh Kumar</p>
-                        <p class="text-sm text-gray-600">CEO, Fashion Accessories Store</p>
-                        <p class="text-xs text-gray-500 mt-1">📍 San Francisco, USA</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 2 -->
-            <div class="bg-white rounded-2xl p-6 shadow-lg hover-lift">
-                <div class="flex items-center mb-4">
-                    <div class="flex text-yellow-400 mb-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                </div>
-                <p class="text-gray-700 mb-4 italic">"As a SaaS startup, we needed to scale rapidly. HireMediaMind reduced our cost per lead by 42% and increased conversion rates by 28%. Their AI automation cut our onboarding time in half. Exceptional results that exceeded our expectations."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
-                        SM
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-900">Sarah Mitchell</p>
-                        <p class="text-sm text-gray-600">Founder, Project Management SaaS</p>
-                        <p class="text-xs text-gray-500 mt-1">📍 London, UK</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="bg-white rounded-2xl p-6 shadow-lg hover-lift">
-                <div class="flex items-center mb-4">
-                    <div class="flex text-yellow-400 mb-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                </div>
-                <p class="text-gray-700 mb-4 italic">"Running a healthcare clinic chain, we needed more appointments without increasing staff. HireMediaMind reduced our cost per lead by 67% and their WhatsApp automation saves us 15 hours per week. Highly professional team with exceptional results."</p>
-                <div class="flex items-center">
-                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
-                        DP
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-900">Dr. Priya Sharma</p>
-                        <p class="text-sm text-gray-600">Owner, Healthcare Clinic Chain</p>
-                        <p class="text-xs text-gray-500 mt-1">📍 Dubai, UAE</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="mt-16 text-center">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <div class="bg-white rounded-xl p-4 shadow-md">
-                    <p class="text-3xl font-bold text-primary mb-2">50+</p>
-                    <p class="text-gray-600 text-sm">Happy Clients</p>
-                </div>
-                <div class="bg-white rounded-xl p-4 shadow-md">
-                    <p class="text-3xl font-bold text-primary mb-2">15+</p>
-                    <p class="text-gray-600 text-sm">Countries Served</p>
-                </div>
-                <div class="bg-white rounded-xl p-4 shadow-md">
-                    <p class="text-3xl font-bold text-primary mb-2">4.9/5</p>
-                    <p class="text-gray-600 text-sm">Average Rating</p>
-                </div>
-                <div class="bg-white rounded-xl p-4 shadow-md">
-                    <p class="text-3xl font-bold text-primary mb-2">200%</p>
-                    <p class="text-gray-600 text-sm">Avg. ROAS Increase</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        <!-- TESTIMONIALS -->
-        
-        <!-- FAQ -->
-        <section id="faq" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p class="text-xl text-gray-600">Everything you need to know about our services</p>
-        </div>
-
-        <div class="max-w-4xl mx-auto">
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">What makes HireMediaMind different from other agencies?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p>We're the only agency that combines performance marketing (Facebook Ads, Google Ads) with AI automation in one integrated solution. While others focus on just ads or just automation, we create systems where your advertising and automation work together—leads from ads are instantly qualified and nurtured by AI, creating a seamless growth engine.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">How quickly will I see results?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p><strong>Timeline breakdown:</strong></p>
-                        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700">
-                            <li><strong>Week 1-2:</strong> AI automation workflows go live (chatbot, lead qualification, data sync)</li>
-                            <li><strong>Week 2-4:</strong> Ad campaigns show optimization results (7-14 days for initial improvements)</li>
-                            <li><strong>Week 4-8:</strong> Systems mature, data accumulates, you see consistent improvements</li>
-                            <li><strong>Week 8-12:</strong> Full-scale results visible - 2-4x ROAS improvement, 80% less manual work</li>
-                        </ul>
-                        <p class="mt-4">Most clients see initial improvements within 2-4 weeks. Full-scale results and ROI improvements are typically visible within 60-90 days as systems mature and data accumulates.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">Do you work with businesses outside India?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p>Yes! We serve clients worldwide including the US, UK, UAE, Germany, Australia, and many other countries. Our team works across time zones and we're experienced with international markets, currencies, and compliance requirements.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">What's included in the free audit?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p>Our free 30-minute audit includes: analysis of your current ad performance, identification of automation opportunities, a custom growth roadmap, and specific recommendations for improving ROAS and reducing costs. No credit card required, and you'll receive a detailed report even if you don't work with us.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">Can I start with just one service (ads or automation)?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p>Absolutely! While we recommend the integrated approach for maximum impact, you can start with either performance marketing or AI automation. Many clients begin with one service and add the other once they see results. We'll help you decide what makes the most sense for your business.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">What platforms do you integrate with?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p>We integrate with 100+ platforms including: Facebook Ads, Google Ads, Instagram, LinkedIn, WhatsApp Business API, Shopify, WooCommerce, HubSpot, Salesforce, Zapier, n8n, Make.com, Slack, email platforms, CRMs, and many more. If you use a specific tool, we can likely integrate it.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">How do you measure success?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p>We track KPIs like ROAS (Return on Ad Spend), cost per lead, conversion rates, customer lifetime value, automation efficiency, and overall revenue growth. You'll receive weekly reports and monthly strategy reviews. Our goal is always to improve your bottom line, not just vanity metrics.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 8 -->
-                <div class="faq-item bg-gray-50 rounded-xl p-6 border border-gray-200 hover-lift">
-                    <button class="faq-question w-full text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
-                        <span class="text-lg font-semibold text-gray-900">Is there a minimum contract period?</span>
-                        <svg class="faq-icon w-6 h-6 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer hidden mt-4 text-gray-600 leading-relaxed">
-                        <p>We typically work on a month-to-month basis with a 30-day notice period. This gives you flexibility while ensuring we have enough time to deliver results. For enterprise clients, we can discuss custom terms that work for both parties.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        <!-- FAQ -->
-        
-        <!-- FAQ Accordion Script -->
-        <script>
-        // FAQ Accordion Functionality - Inline for immediate execution
-        (function() {
-            function initFAQ() {
-                const faqItems = document.querySelectorAll('.faq-item');
-                
-                if (faqItems.length === 0) {
-                    // Retry after a short delay if elements aren't ready
-                    setTimeout(initFAQ, 100);
-                    return;
-                }
-                
-                faqItems.forEach(item => {
-                    const question = item.querySelector('.faq-question');
-                    const answer = item.querySelector('.faq-answer');
-                    const icon = item.querySelector('.faq-icon');
-                    
-                    if (question && answer && icon) {
-                        // Remove any existing listeners
-                        const newQuestion = question.cloneNode(true);
-                        question.parentNode.replaceChild(newQuestion, question);
-                        
-                        newQuestion.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            
-                            const isOpen = !answer.classList.contains('hidden');
-                            
-                            // Close all other FAQs
-                            faqItems.forEach(otherItem => {
-                                if (otherItem !== item) {
-                                    const otherAnswer = otherItem.querySelector('.faq-answer');
-                                    const otherIcon = otherItem.querySelector('.faq-icon');
-                                    const otherQuestion = otherItem.querySelector('.faq-question');
-                                    if (otherAnswer && otherIcon && otherQuestion) {
-                                        otherAnswer.classList.add('hidden');
-                                        otherIcon.classList.remove('rotate-180');
-                                        otherQuestion.setAttribute('aria-expanded', 'false');
-                                    }
-                                }
-                            });
-                            
-                            // Toggle current FAQ
-                            if (isOpen) {
-                                answer.classList.add('hidden');
-                                icon.classList.remove('rotate-180');
-                                newQuestion.setAttribute('aria-expanded', 'false');
-                            } else {
-                                answer.classList.remove('hidden');
-                                icon.classList.add('rotate-180');
-                                newQuestion.setAttribute('aria-expanded', 'true');
-                                
-                                // Track FAQ interaction
-                                if (typeof trackEvent !== 'undefined') {
-                                    trackEvent('FAQ', 'question_opened', newQuestion.textContent.trim());
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-            
-            // Initialize when DOM is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initFAQ);
-            } else {
-                initFAQ();
-            }
-        })();
-        </script>
-        
-      <section id="contact" class="py-24 bg-gray-50">
-    <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-2xl p-10 border border-gray-100">
-        <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Contact Us</h2>
-
-        <form id="contactForm" class="space-y-5 contact-form" action="/api/submit-lead.php" method="POST" novalidate>
-
-            <input type="text" name="name" placeholder="Full Name *" required class="input-field">
-            <input type="email" name="email" placeholder="Email Address *" required class="input-field">
-            <input type="text" name="phone" placeholder="Phone Number" class="input-field">
-            <input type="text" name="business" placeholder="Business Name" class="input-field">
-
-            <select name="service" required class="input-field">
-                <option value="">Select Service *</option>
-                <option value="Facebook Ads">Facebook Ads</option>
-                <option value="Google Ads">Google Ads</option>
-                <option value="AI Automation">AI Automation</option>
-                <option value="AI Chatbots">AI Chatbots</option>
-                <option value="Performance Marketing">Performance Marketing</option>
-            </select>
-
-            <textarea name="message" placeholder="Message (Optional)" rows="4" class="input-field"></textarea>
-
-            <!-- Hidden Tracking Fields -->
-            <input type="hidden" name="country" id="country">
-            <input type="hidden" name="city" id="city">
-            <input type="hidden" name="timestamp" id="timestamp">
-            <input type="hidden" name="page_source" id="page_source">
-            <input type="hidden" name="region" id="region">
-            <div class="contact-honeypot" aria-hidden="true">
-                <label for="website_url">Website</label>
-                <input type="text" name="website_url" id="website_url" tabindex="-1" autocomplete="off">
-            </div>
-
-            <button type="submit" id="submitBtn"
-                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
-                Submit
-            </button>
-
-            <p id="form-status" class="text-center text-sm" role="status" aria-live="polite"></p>
-        </form>
-    </div>
-</section>
-
-
-
-
-
-
-    </div>
-</section>
-        <!-- CONTACT -->
+        </section>
     </main>
-    
-    <!-- PREMIUM FOOTER -->
-    <footer class="footer-premium">
-        <div class="footer-content">
-            <!-- Brand Column -->
-            <div class="footer-brand footer-column">
-                <div class="footer-logo">
-                    <img src="LOGO.png" alt="HireMediaMind Logo" class="footer-logo-img" width="48" height="48">
-                    <span class="footer-brand-name">HireMediaMind</span>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto py-12 px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="LOGO.png" alt="HireMediaMind Logo" class="w-8 h-8">
+                        <span
+                            class="text-lg font-bold bg-gradient-to-r from-sky-400 via-teal-400 to-amber-400 bg-clip-text text-transparent">HireMediaMind</span>
+                    </div>
+                    <p class="text-sm text-slate-400">Performance Marketing & AI Automation for Growing Brands</p>
                 </div>
-                <p class="footer-description">
-                    Driving business growth through strategic performance marketing and cutting-edge AI automation solutions. Serving businesses worldwide with measurable results.
-                </p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/hiremediamind" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="https://twitter.com/hiremediamind" target="_blank" rel="noopener" class="social-link" aria-label="Twitter">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/hiremediamind" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/hiremediamind" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-3 text-white">Services</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="pricing.html" class="hover:text-teal-400">Performance Marketing</a></li>
+                        <li><a href="pricing.html" class="hover:text-teal-400">AI Automation</a></li>
+                        <li><a href="roas-calculator.html" class="hover:text-teal-400">ROAS Calculator</a></li>
+                        <li><a href="pricing.html" class="hover:text-teal-400">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold mb-3 text-white">Company</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="about-us.html" class="hover:text-teal-400">About Us</a></li>
+                        <li><a href="case-studies/" class="hover:text-teal-400">Case Studies</a></li>
+                        <li><a href="/#faq" class="hover:text-teal-400">FAQ</a></li>
+                        <li><a href="/#contact" class="hover:text-teal-400">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold mb-3 text-white">Get In Touch</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>New Delhi, India</li>
+                        <li><a href="mailto:team.hiremediamind@gmail.com"
+                                class="hover:text-teal-400">team.hiremediamind@gmail.com</a></li>
+                        <li><a href="#book-call" class="text-teal-400 hover:text-teal-300 font-semibold">Book a Call
+                                →</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Services Column -->
-            <div class="footer-column">
-                <h4>Services</h4>
-                <ul class="footer-links">
-                    <li><a href="/services/performance-marketing.html">Performance Marketing</a></li>
-                    <li><a href="/services/ai-automation.html">AI Automation</a></li>
-                    <li><a href="/services/integrated-solution.html">Integrated Solution</a></li>
-                    <li><a href="#services">Facebook & Instagram Ads</a></li>
-                    <li><a href="#services">Google Ads Management</a></li>
-                    <li><a href="#services">Workflow Automation</a></li>
-                </ul>
-            </div>
-            
-            <!-- Company Column -->
-            <div class="footer-column">
-                <h4>Company</h4>
-                <ul class="footer-links">
-                    <li><a href="/about-us">About Us</a></li>
-                    <li><a href="/how-we-work">How We Work</a></li>
-                    <li><a href="/case-studies">Case Studies</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <!-- Contact & Newsletter Column -->
-            <div class="footer-column">
-                <h4>Get in Touch</h4>
-                <ul class="footer-links">
-                    <li>
-                        <a href="mailto:hello@hiremediamind.com" class="flex items-start gap-2">
-                            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span>hello@hiremediamind.com</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/918429889303" target="_blank" class="flex items-start gap-2">
-                            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                            </svg>
-                            <span>+91 8429889303</span>
-                        </a>
-                    </li>
-                    <li class="text-gray-400">
-                        <span class="flex items-start gap-2">
-                            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            <span>Based in India • Serving Worldwide</span>
-                        </span>
-                    </li>
-                </ul>
-                
-                <!-- Newsletter -->
-                <div class="footer-newsletter">
-                    <h5>Stay Updated</h5>
-                    <p>Get marketing insights and growth tips delivered to your inbox.</p>
-                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Newsletter signup coming soon!');">
-                        <input type="email" class="newsletter-input" placeholder="Your email" required>
-                        <button type="submit" class="newsletter-btn">Subscribe</button>
-                    </form>
+            <div
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>© <span id="year"></span> HireMediaMind. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="/#contact" class="hover:text-teal-400">Privacy</a>
+                    <a href="/#contact" class="hover:text-teal-400">Terms</a>
+                    <a href="/#contact" class="hover:text-teal-400">Contact</a>
                 </div>
             </div>
         </div>
+    </footer>
 
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p>&copy; <span id="currentYear"></span> HireMediaMind. All rights reserved.</p>
-                <div class="footer-legal-links">
-                    <a href="/privacy-policy">Privacy Policy</a>
-                    <a href="/terms-of-service">Terms of Service</a>
-                    <a href="/cookie-policy">Cookie Policy</a>
-                </div>
-        </div>
-    </div>
-</footer>
+    <!-- Scripts -->
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
 
-    <!-- FOOTER -->
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
 
-    <!-- WhatsApp Floating Button with improved accessibility -->
-    <div class="fixed bottom-6 right-6 z-50" role="complementary" aria-label="Contact via WhatsApp">
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Book a call button tracking
+        const bookCallBtns = document.querySelectorAll('#bookCallBtn, #bookCallBtnHero, [href="#book-call"]');
+        bookCallBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Track event if GTM is loaded
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'cta_click',
+                        'cta_type': 'book_call',
+                        'cta_location': btn.id || 'unknown'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-6 right-6 z-50">
         <a href="https://wa.me/918429889303?text=Hi,%20I%20visited%20your%20website%20and%20I%27m%20interested%20in%20your%20services."
-           class="block bg-green-500 hover:bg-green-600 rounded-full p-3 shadow-lg transition-all hover:scale-110 animate-pulse-slow"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Chat with us on WhatsApp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                 class="w-8 h-8" 
-                 alt="WhatsApp Icon"
-                 width="32"
-                 height="32"
-                 loading="lazy">
+            class="block bg-green-500 hover:bg-green-600 rounded-full p-3 shadow-lg transition-all hover:scale-110 animate-pulse"
+            target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-8 h-8"
+                alt="WhatsApp Icon" width="32" height="32" loading="lazy">
         </a>
     </div>
 
-    <!-- Trust Badge Section (shows after scroll) -->
-    <div id="trust-badge" class="hidden fixed bottom-24 right-6 bg-white rounded-lg shadow-xl p-3 z-40 animate-slide-up">
-        <div class="flex items-center space-x-2 text-sm">
-            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="font-medium text-gray-700">Trusted by 50+ businesses worldwide</span>
-        </div>
-    </div>
-
-    <!-- JavaScript - Load deferred for performance -->
-    <script src="js/currency-converter.js" defer></script>
-   
-    <script src="js/python-bridge.js" defer></script>
-    
-    <!-- Intersection Observer for animations -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.hover-lift').forEach(el => observer.observe(el));
-        
-        // Show trust badge after 3 seconds
-        setTimeout(() => {
-            const trustBadge = document.getElementById('trust-badge');
-            if (trustBadge) {
-                trustBadge.classList.remove('hidden');
-            }
-        }, 3000);
-    });
-    </script>
-    
-    <!-- Performance monitoring -->
-    <script>
-        if ('PerformanceObserver' in window) {
-            const perfObserver = new PerformanceObserver((list) => {
-                list.getEntries().forEach((entry) => {
-                    if (entry.entryType === 'largest-contentful-paint') {
-                        console.log('LCP:', entry.renderTime || entry.loadTime);
-                    }
-                });
-            });
-            perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-        }
-    </script>
-    
-    <!-- Set current year in footer -->
-    <script>
-        window.addEventListener('load', function() {
-            const yearElement = document.getElementById('currentYear');
-            if (yearElement) {
-                yearElement.textContent = new Date().getFullYear();
-            }
-        });
-    </script>
-    
-    <!-- Pricing Button Handlers with Currency -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get current currency (from currency converter or default to USD)
-            function getCurrentCurrency() {
-                const savedCurrency = localStorage.getItem('preferredCurrency');
-                return savedCurrency || 'USD';
-            }
-            
-            // Handle pricing button clicks
-            const starterBtn = document.getElementById('starterPlanBtn');
-            const growthBtn = document.getElementById('growthPlanBtn');
-            const premiumBtn = document.getElementById('premiumPlanBtn');
-            
-            if (starterBtn) {
-                starterBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const currency = getCurrentCurrency();
-                    window.location.href = '/payment.html?plan=starter&currency=' + currency;
-                    
-                    if (typeof trackEvent !== 'undefined') {
-                        trackEvent('Pricing', 'plan_clicked', 'Starter Plan');
-                    }
-                });
-            }
-            
-            if (growthBtn) {
-                growthBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const currency = getCurrentCurrency();
-                    window.location.href = '/payment.html?plan=growth&currency=' + currency;
-                    
-                    if (typeof trackEvent !== 'undefined') {
-                        trackEvent('Pricing', 'plan_clicked', 'Growth Plan');
-                    }
-                });
-            }
-            
-            if (premiumBtn) {
-                premiumBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const currency = getCurrentCurrency();
-                    window.location.href = '/payment.html?plan=premium&currency=' + currency;
-                    
-                    if (typeof trackEvent !== 'undefined') {
-                        trackEvent('Pricing', 'plan_clicked', 'Premium Plan');
-                    }
-                });
-            }
-        });
-    </script>
-    
     <!-- Book a Call Modal -->
     <div id="bookCallModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
@@ -1912,77 +792,91 @@ body { margin:0; font-family:Inter,sans-serif; }
                 <!-- Header -->
                 <div class="flex justify-between items-center mb-6">
                     <div>
-                        <h2 class="text-3xl font-bold text-gray-900">Schedule a Strategy Call</h2>
-                        <p class="text-gray-600 mt-2">Let's discuss how we can scale your business</p>
+                        <h2 class="text-3xl font-bold text-slate-900">Schedule a Strategy Call</h2>
+                        <p class="text-slate-600 mt-2">Let's discuss how we can scale your business</p>
                     </div>
-                    <button id="closeBookCallModal" class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <button id="closeBookCallModal" class="text-slate-400 hover:text-slate-600 transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
-                
+
                 <!-- Calendar Integration Options -->
                 <div class="space-y-4">
-                    <!-- Calendly Embed (Recommended) -->
-                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">📅 Book via Calendly</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Choose a time that works for you. We'll send a calendar invite.</p>
-                        <a href="https://calendly.com/hiremediamind/strategy-call" target="_blank" 
-                           class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                            Open Calendar
+                    <!-- WhatsApp Direct Contact (Primary) -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">💬 Book via WhatsApp (Fastest)</h3>
+                        <p class="text-slate-600 mb-4 text-sm">Chat with us directly to schedule your strategy call at a
+                            time that works for you.</p>
+                        <a href="https://wa.me/918429889303?text=Hi,%20I%27d%20like%20to%20schedule%20a%20free%20strategy%20call%20to%20discuss%20scaling%20my%20business."
+                            target="_blank"
+                            class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                            Chat on WhatsApp
                         </a>
                     </div>
-                    
+
                     <!-- Alternative: Direct Contact -->
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">💬 Or Contact Us Directly</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Prefer to chat? Reach out via WhatsApp or email.</p>
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">💬 Or Contact Us Directly</h3>
+                        <p class="text-slate-600 mb-4 text-sm">Prefer to chat? Reach out via WhatsApp or email.</p>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="https://wa.me/918429889303?text=Hi,%20I%27d%20like%20to%20schedule%20a%20strategy%20call." 
-                               target="_blank"
-                               class="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                            <a href="https://wa.me/918429889303?text=Hi,%20I%27d%20like%20to%20schedule%20a%20strategy%20call."
+                                target="_blank"
+                                class="flex items-center justify-center space-x-2 bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                                 </svg>
                                 <span>WhatsApp</span>
                             </a>
-                            <a href="mailto:hello@hiremediamind.com?subject=Strategy Call Request" 
-                               class="flex items-center justify-center space-x-2 bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            <a href="mailto:team.hiremediamind@gmail.com?subject=Strategy Call Request"
+                                class="flex items-center justify-center space-x-2 bg-slate-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
                                 </svg>
                                 <span>Email Us</span>
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- What to Expect -->
-                <div class="mt-6 pt-6 border-t border-gray-200">
-                    <h3 class="text-sm font-semibold text-gray-900 mb-3">What to Expect:</h3>
-                    <ul class="space-y-2 text-sm text-gray-600">
+                <div class="mt-6 pt-6 border-t border-slate-200">
+                    <h3 class="text-sm font-semibold text-slate-900 mb-3">What to Expect:</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
                         <li class="flex items-start space-x-2">
                             <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                             <span>30-minute strategy session</span>
                         </li>
                         <li class="flex items-start space-x-2">
                             <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                             <span>Custom growth roadmap</span>
                         </li>
                         <li class="flex items-start space-x-2">
                             <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                             <span>ROI projections</span>
                         </li>
                         <li class="flex items-start space-x-2">
                             <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                             <span>No obligation, 100% free</span>
                         </li>
@@ -1993,60 +887,212 @@ body { margin:0; font-family:Inter,sans-serif; }
     </div>
 
     <script>
-    // Book a Call Modal Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const modal = document.getElementById('bookCallModal');
-        const openBtns = document.querySelectorAll('#bookCallBtn, #bookCallBtnHero');
-        const closeBtn = document.getElementById('closeBookCallModal');
-        
-        openBtns.forEach(btn => {
-            if (btn) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (modal) {
-                        modal.classList.remove('hidden');
-                        modal.classList.add('flex');
-                        document.body.style.overflow = 'hidden';
-                        
-                        if (typeof trackEvent !== 'undefined') {
-                            trackEvent('CTA', 'book_call_clicked', 'Button');
+        // Book a Call Modal Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('bookCallModal');
+            const openBtns = document.querySelectorAll('#bookCallBtn, #bookCallBtnHero, [href="#book-call"]');
+            const closeBtn = document.getElementById('closeBookCallModal');
+
+            openBtns.forEach(btn => {
+                if (btn) {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        if (modal) {
+                            modal.classList.remove('hidden');
+                            modal.classList.add('flex');
+                            document.body.style.overflow = 'hidden';
+
+                            if (typeof dataLayer !== 'undefined') {
+                                dataLayer.push({
+                                    'event': 'book_call_modal_opened',
+                                    'cta_location': btn.id || 'unknown'
+                                });
+                            }
                         }
+                    });
+                }
+            });
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function () {
+                    if (modal) {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                        document.body.style.overflow = '';
                     }
                 });
             }
-        });
-        
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function() {
-                if (modal) {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-        
-        if (modal) {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                    document.body.style.overflow = '';
-                }
-            });
-        }
-        
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = '';
+
+            if (modal) {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal) {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                        document.body.style.overflow = '';
+                    }
+                });
             }
-        });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            });
         });
     </script>
-<script defer src="js/app-performance.js"></script>
-<script defer src="js/contact-form.js"></script>
-<script src="/js/mobile-menu-fix.js"></script>
+
+    <!-- Contact Form Handler -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+
+            // Get CSRF token
+            try {
+                const response = await fetch('api/get-csrf-token.php');
+                const data = await response.json();
+                document.getElementById('csrf_token').value = data.csrf_token;
+            } catch (error) {
+                console.error('Failed to get CSRF token:', error);
+            }
+
+            // Get user location
+            try {
+                const locationResponse = await fetch('https://ipapi.co/json/');
+                const location = await locationResponse.json();
+                document.getElementById('country').value = location.country_name || '';
+                document.getElementById('city').value = location.city || '';
+                document.getElementById('region').value = location.region || '';
+            } catch (error) {
+                console.error('Failed to get location:', error);
+            }
+
+            // Set page source
+            document.querySelector('[name="page_source"]').value = window.location.href;
+
+            // Client-side validation functions
+            const validateField = (field, errorElement, validator) => {
+                const isValid = validator(field.value);
+                if (!isValid) {
+                    errorElement.classList.remove('hidden');
+                    field.classList.add('border-red-500');
+                    return false;
+                } else {
+                    errorElement.classList.add('hidden');
+                    field.classList.remove('border-red-500');
+                    return true;
+                }
+            };
+
+            const nameField = document.getElementById('name');
+            const emailField = document.getElementById('email');
+            const phoneField = document.getElementById('phone');
+            const messageField = document.getElementById('message');
+
+            // Real-time validation on blur
+            if (nameField) nameField.addEventListener('blur', () => {
+                validateField(nameField, document.getElementById('name-error'),
+                    val => val.length >= 2);
+            });
+
+            if (emailField) emailField.addEventListener('blur', () => {
+                validateField(emailField, document.getElementById('email-error'),
+                    val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+            });
+
+            if (phoneField) phoneField.addEventListener('blur', () => {
+                if (phoneField.value) {
+                    validateField(phoneField, document.getElementById('phone-error'),
+                        val => /^[0-9+\-\s()]+$/.test(val));
+                }
+            });
+
+            if (messageField) messageField.addEventListener('blur', () => {
+                validateField(messageField, document.getElementById('message-error'),
+                    val => val.length >= 10);
+            });
+
+            // Form submission via AJAX
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Validate all fields
+                const nameValid = validateField(nameField, document.getElementById('name-error'),
+                    val => val.length >= 2);
+                const emailValid = validateField(emailField, document.getElementById('email-error'),
+                    val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+                const messageValid = validateField(messageField, document.getElementById('message-error'),
+                    val => val.length >= 10);
+
+                if (!nameValid || !emailValid || !messageValid) {
+                    showMessage('Please fix the errors above', 'error');
+                    return;
+                }
+
+                // Show loading state
+                const submitBtn = document.getElementById('submitBtn');
+                const btnText = document.getElementById('btnText');
+                const btnLoading = document.getElementById('btnLoading');
+
+                submitBtn.disabled = true;
+                btnText.classList.add('hidden');
+                btnLoading.classList.remove('hidden');
+
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.status === 'success') {
+                        showMessage('Thank you! Redirecting...', 'success');
+
+                        // Track successful submission
+                        if (typeof dataLayer !== 'undefined') {
+                            dataLayer.push({
+                                'event': 'formSubmissionSuccess',
+                                'formName': 'contact_form'
+                            });
+                        }
+
+                        // Redirect to thank you page after 1 second
+                        setTimeout(() => {
+                            window.location.href = 'thank-you.html';
+                        }, 1000);
+                    } else {
+                        showMessage(result.msg || 'An error occurred. Please try again.', 'error');
+                        submitBtn.disabled = false;
+                        btnText.classList.remove('hidden');
+                        btnLoading.classList.add('hidden');
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    showMessage('Network error. Please check your connection and try again.', 'error');
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoading.classList.add('hidden');
+                }
+            });
+
+            function showMessage(message, type) {
+                const messageDiv = document.getElementById('formMessage');
+                if (messageDiv) {
+                    messageDiv.textContent = message;
+                    messageDiv.className = `mt-4 p-3 rounded-lg ${type === 'success' ? 'bg-green-100 text-green-800 border border-green-300' : 'bg-red-100 text-red-800 border border-red-300'}`;
+                    messageDiv.classList.remove('hidden');
+
+                    if (type === 'success') {
+                        setTimeout(() => messageDiv.classList.add('hidden'), 5000);
+                    }
+                }
+            }
+        });
+    </script>
 </body>
+
 </html>

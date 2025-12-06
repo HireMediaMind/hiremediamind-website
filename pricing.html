@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - HireMediaMind</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/tailwind-build.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            padding-top: 50px;
+            /* Space for banner */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .pricing-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .pricing-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .pricing-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .currency-selector {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 10px 20px;
+            display: inline-flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .currency-btn {
+            background: transparent;
+            border: 2px solid transparent;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .currency-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .currency-btn.active {
+            background: white;
+            color: #667eea;
+            border-color: white;
+        }
+
+        /* Pricing Sections */
+        .pricing-section {
+            padding: 80px 0;
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e5e7eb;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+            z-index: 1;
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.08);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin: 20px 0;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: normal;
+        }
+
+        .price-savings {
+            color: var(--success);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Buttons */
+        .cta-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .trust-badge {
+            text-align: center;
+            color: #6b7280;
+            min-width: 120px;
+        }
+
+        .trust-badge i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .trust-badge .fas {
+            color: var(--success);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            position: relative;
+            animation: modalAppear 0.3s ease;
+        }
+
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .close:hover {
+            color: var(--dark);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pricing-hero h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .currency-selector {
+                padding: 8px 15px;
+            }
+
+            .currency-btn {
+                padding: 6px 15px;
+                font-size: 14px;
+            }
+        }
+
+        /* Christmas Animation & Discount Styles */
+        .christmas-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #d42424, #1a472a);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 2000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: bold;
+        }
+
+        .banner-btn {
+            background: white;
+            color: #d42424;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .banner-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .close-banner {
+            cursor: pointer;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(60px);
+            }
+        }
+
+        /* Discount Price Styles */
+        .original-price {
+            text-decoration: line-through;
+            color: #9ca3af;
+            font-size: 1.2rem;
+            margin-bottom: -5px;
+        }
+
+        .discounted-price {
+            color: #d42424;
+            /* Christmas Red */
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .discounted-price .period {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: normal;
+        }
+
+        .discount-tag {
+            background: #d42424;
+            color: white;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Pricing Hero Section -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>Transparent Pricing for Global Excellence</h1>
+            <p>US-Quality Marketing & AI Solutions at Competitive Global Rates</p>
+            <div class="currency-selector">
+                <button class="currency-btn active" data-currency="USD">USD $</button>
+                <button class="currency-btn" data-currency="EUR">EUR €</button>
+                <button class="currency-btn" data-currency="GBP">GBP £</button>
+                <button class="currency-btn" data-currency="INR">INR ₹</button>
+                <button class="currency-btn" data-currency="AUD">AUD $</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Marketing Pricing -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2>Performance Marketing Solutions</h2>
+            <div class="pricing-container">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <div class="plan-badge">STARTER</div>
+                    <h3>Essential Growth</h3>
+                    <div class="plan-price" data-usd="997" data-eur="920" data-gbp="785" data-inr="82900"
+                        data-aud="1520">$997<span>/month</span></div>
+                    <div class="price-savings">Save $300 vs. industry average</div>
+                    <ul class="features-list">
+                        <li>2 Social Media Platforms Managed</li>
+                        <li>Basic Ad Campaign Management</li>
+                        <li>Monthly Performance Reports</li>
+                        <li>5 Custom Ad Creatives/Month</li>
+                        <li>Conversion Tracking Setup</li>
+                    </ul>
+                    <a href="payment.html?plan=starter&type=performance" class="cta-button btn-outline">Get Started</a>
+                </div>
+
+                <!-- Growth Plan (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="plan-badge" style="background: var(--primary);">MOST POPULAR</div>
+                    <h3>Growth Accelerator</h3>
+                    <div class="plan-price" data-usd="1997" data-eur="1845" data-gbp="1575" data-inr="165900"
+                        data-aud="3050">$1,997<span>/month</span></div>
+                    <div class="price-savings">Save $800 vs. industry average</div>
+                    <ul class="features-list">
+                        <li>4 Social Media Platforms Managed</li>
+                        <li>Advanced Ad Campaign Management</li>
+                        <li>Bi-Weekly Performance Reports</li>
+                        <li>10 Custom Ad Creatives/Month</li>
+                        <li>Advanced Conversion API Setup</li>
+                        <li>Retargeting Campaigns</li>
+                        <li>A/B Testing</li>
+                    </ul>
+                    <a href="payment.html?plan=growth&type=performance" class="cta-button btn-primary">Get Started</a>
+                </div>
+
+                <!-- Scale Plan -->
+                <div class="pricing-card">
+                    <div class="plan-badge" style="background: var(--secondary);">BEST VALUE</div>
+                    <h3>Market Dominance</h3>
+                    <div class="plan-price" data-usd="3997" data-eur="3690" data-gbp="3150" data-inr="332000"
+                        data-aud="6100">$3,997<span>/month</span></div>
+                    <div class="price-savings">Save $1,500 vs. industry average</div>
+                    <ul class="features-list">
+                        <li>All Social Platforms Managed</li>
+                        <li>Omnichannel Ad Strategy</li>
+                        <li>Weekly Performance Reports</li>
+                        <li>Unlimited Ad Creatives</li>
+                        <li>Full Funnel Optimization</li>
+                        <li>Dedicated Account Manager</li>
+                        <li>24/7 Priority Support</li>
+                        <li>Competitor Analysis</li>
+                    </ul>
+                    <a href="payment.html?plan=scale&type=performance" class="cta-button btn-outline">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Automation Pricing -->
+    <section class="pricing-section" style="background: #f8fafc;">
+        <div class="container">
+            <h2>AI Automation Solutions</h2>
+            <div class="pricing-container">
+                <!-- AI Starter -->
+                <div class="pricing-card">
+                    <div class="plan-badge">AI STARTER</div>
+                    <h3>Efficiency Boost</h3>
+                    <div class="plan-price" data-usd="1497" data-eur="1380" data-gbp="1180" data-inr="124500"
+                        data-aud="2290">$1,497<span>/month</span></div>
+                    <div class="price-savings">Replaces 1 Full-Time Employee</div>
+                    <ul class="features-list">
+                        <li>AI Customer Support Chatbot</li>
+                        <li>Basic Lead Qualification</li>
+                        <li>Email Automation Setup</li>
+                        <li>CRM Integration (HubSpot/Salesforce)</li>
+                        <li>Monthly Maintenance</li>
+                    </ul>
+                    <a href="payment.html?plan=starter&type=automation" class="cta-button btn-outline">Get Started</a>
+                </div>
+
+                <!-- AI Pro -->
+                <div class="pricing-card featured">
+                    <div class="plan-badge" style="background: var(--secondary);">RECOMMENDED</div>
+                    <h3>Business Autopilot</h3>
+                    <div class="plan-price" data-usd="2997" data-eur="2765" data-gbp="2360" data-inr="249000"
+                        data-aud="4580">$2,997<span>/month</span></div>
+                    <div class="price-savings">Replaces 3 Full-Time Employees</div>
+                    <ul class="features-list">
+                        <li>Everything in Starter</li>
+                        <li>Advanced Workflow Automation (n8n/Zapier)</li>
+                        <li>WhatsApp Business Automation</li>
+                        <li>Social Media Auto-Posting</li>
+                        <li>Appointment Booking Automation</li>
+                        <li>Custom AI Knowledge Base</li>
+                    </ul>
+                    <a href="payment.html?plan=pro&type=automation" class="cta-button btn-primary">Get Started</a>
+                </div>
+
+                <!-- AI Enterprise -->
+                <div class="pricing-card">
+                    <div class="plan-badge" style="background: var(--dark);">ENTERPRISE</div>
+                    <h3>Custom AI Infrastructure</h3>
+                    <div class="plan-price" data-usd="4997" data-eur="4615" data-gbp="3940" data-inr="415000"
+                        data-aud="7640">$4,997<span>/month</span></div>
+                    <div class="price-savings">Replaces Entire Operations Team</div>
+                    <ul class="features-list">
+                        <li>Everything in Pro</li>
+                        <li>Custom LLM Development</li>
+                        <li>Private Server Deployment</li>
+                        <li>Voice AI Agents</li>
+                        <li>Complex Data Analysis Bots</li>
+                        <li>Dedicated AI Engineer</li>
+                        <li>SLA Guarantees</li>
+                    </ul>
+                    <a href="payment.html?plan=enterprise&type=automation" class="cta-button btn-outline">Get
+                        Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges">
+        <div class="trust-badge">
+            <i class="fas fa-shield-alt"></i>
+            <p>Secure Payment</p>
+        </div>
+        <div class="trust-badge">
+            <i class="fas fa-globe"></i>
+            <p>Global Service</p>
+        </div>
+        <div class="trust-badge">
+            <i class="fas fa-headset"></i>
+            <p>24/7 Support</p>
+        </div>
+        <div class="trust-badge">
+            <i class="fas fa-check-circle"></i>
+            <p>Money Back Guarantee</p>
+        </div>
+    </div>
+
+    <!-- Book a Call Modal -->
+    <div id="bookCallModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px;">Book Your Strategy Call</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">Select a time that works for you to discuss
+                your growth strategy.</p>
+            <!-- Calendly Inline Widget -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/hiremediamind/30min"
+                style="min-width:320px;height:630px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+
+    <!-- Christmas Banner -->
+    <div id="christmasBanner" class="christmas-banner">
+        <div class="snow-container"></div>
+        <div class="banner-content">
+            <span>🎄 Christmas Sale ! 30% OFF All Plans - Limited Time Only ! 🎄</span>
+            <button onclick="scrollToPricing()" class="banner-btn">Claim Offer</button>
+            <span class="close-banner" onclick="closeBanner()">&times;</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/currency-converter.js"></script>
+    <script>
+        // Christmas & Discount Logic
+        const SITE_WIDE_DISCOUNT = 30; // 30% OFF
+
+        // Snow Effect
+        function createSnow() {
+            const banner = document.getElementById('christmasBanner');
+            const snowContainer = banner.querySelector('.snow-container');
+            const snowflakes = 50;
+
+            for (let i = 0; i < snowflakes; i++) {
+                const snow = document.createElement('div');
+                snow.className = 'snowflake';
+                snow.style.left = Math.random() * 100 + '%';
+                snow.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snow.style.opacity = Math.random();
+                snow.innerHTML = '❄';
+                snowContainer.appendChild(snow);
+            }
+        }
+
+        // Banner Logic
+        function closeBanner() {
+            document.getElementById('christmasBanner').style.display = 'none';
+        }
+
+        function scrollToPricing() {
+            document.querySelector('.pricing-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Currency & Price Update Logic
+        const currencyRates = {
+            USD: 1.0,
+            GBP: 0.79,
+            EUR: 0.92,
+            INR: 83.0,
+            AUD: 1.52
+        };
+
+        const currencySymbols = {
+            USD: '$',
+            GBP: '£',
+            EUR: '€',
+            INR: '₹',
+            AUD: 'A$'
+        };
+
+        let currentCurrency = 'USD';
+
+        function updatePrices() {
+            const cards = document.querySelectorAll('.pricing-card');
+            const symbol = currencySymbols[currentCurrency];
+
+            cards.forEach(card => {
+                const priceEl = card.querySelector('.plan-price');
+                const basePrice = parseFloat(priceEl.getAttribute(`data-${currentCurrency.toLowerCase()}`));
+
+                // Calculate Discount
+                const discountedPrice = Math.round(basePrice * (1 - SITE_WIDE_DISCOUNT / 100));
+
+                // Update HTML
+                let priceHtml = '';
+                if (SITE_WIDE_DISCOUNT > 0) {
+                    priceHtml = `
+                        <div class="original-price">${symbol}${basePrice.toLocaleString()}</div>
+                        <div class="discounted-price">
+                            ${symbol}${discountedPrice.toLocaleString()}
+                            <span class="period">/month</span>
+                        </div>
+                        <div class="discount-tag">${SITE_WIDE_DISCOUNT}% OFF</div>
+                    `;
+                } else {
+                    priceHtml = `${symbol}${basePrice.toLocaleString()}<span>/month</span>`;
+                }
+                priceEl.innerHTML = priceHtml;
+
+                // Update Link
+                const link = card.querySelector('.cta-button');
+                const originalHref = link.getAttribute('href').split('?')[0];
+                const params = new URLSearchParams(link.getAttribute('href').split('?')[1]);
+
+                if (SITE_WIDE_DISCOUNT > 0) {
+                    params.set('discount', SITE_WIDE_DISCOUNT);
+                } else {
+                    params.delete('discount');
+                }
+
+                // Preserve currency if needed, but payment page detects it. 
+                // Let's pass it to be safe.
+                params.set('currency', currentCurrency);
+
+                link.setAttribute('href', `${originalHref}?${params.toString()}`);
+            });
+        }
+
+        // Currency Selector Logic
+        document.querySelectorAll('.currency-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class
+                document.querySelectorAll('.currency-btn').forEach(b => b.classList.remove('active'));
+                // Add active class
+                btn.classList.add('active');
+                // Update Currency
+                currentCurrency = btn.getAttribute('data-currency');
+                updatePrices();
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createSnow();
+            updatePrices();
+        });
+
+        // Modal Logic
+        const modal = document.getElementById("bookCallModal");
+        const span = document.getElementsByClassName("close")[0];
+
+        if (span) {
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

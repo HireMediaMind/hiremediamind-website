@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitting... - HireMediaMind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-sky-50 to-emerald-50 flex items-center justify-center min-h-screen">
+    <div class="text-center max-w-md mx-auto px-4">
+        <div class="inline-block animate-spin rounded-full h-20 w-20 border-t-4 border-b-4 border-teal-500 mb-6"></div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">Submitting Your Request...</h2>
+        <p class="text-slate-600 mb-4">Please wait while we process your information</p>
+        <div class="bg-white rounded-lg p-4 shadow-lg">
+            <p class="text-sm text-slate-500" id="status">Detecting your location...</p>
+        </div>
+    </div>
+
+    <script>
+        // Get form data from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const formData = {
+            name: urlParams.get('name') || '',
+            email: urlParams.get('email') || '',
+            phone: urlParams.get('phone') || '',
+            business: urlParams.get('company') || '',
+            message: urlParams.get('message') || '',
+            service: 'General Inquiry',
+            page_source: document.referrer || window.location.origin,
+            website_url: '' // Honeypot
+        };
+
+        // Update status
+        document.getElementById('status').textContent = 'Getting your location...';
+
+        // Get user location from IP
+        fetch('https://ipapi.co/json/')
+            .then(res => res.json())
+            .then(location => {
+                document.getElementById('status').textContent = 'Saving your information...';
+
+                // Add location data
+                formData.country = location.country_name || '';
+                formData.city = location.city || '';
+                formData.region = location.region || '';
+
+                console.log('Submitting data:', formData);
+
+                // Submit to API
+                return fetch('api/submit-lead.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formData)
+                });
+            })
+            .then(res => res.json())
+            .then(result => {
+                console.log('API Response:', result);
+                document.getElementById('status').textContent = 'Success! Redirecting...';
+                setTimeout(() => {
+                    window.location.href = 'thank-you.html';
+                }, 500);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').textContent = 'Redirecting...';
+                // Still redirect to thank you page even if there's an error
+                setTimeout(() => {
+                    window.location.href = 'thank-you.html';
+                }, 1000);
+            });
+    </script>
+</body>
+
+</html>

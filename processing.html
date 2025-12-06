@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing... - HireMediaMind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-sky-50 flex items-center justify-center min-h-screen">
+    <div class="text-center">
+        <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-teal-500 mb-4"></div>
+        <p class="text-xl text-slate-700">Processing your request...</p>
+        <p class="text-sm text-slate-500 mt-2">Please wait</p>
+    </div>
+
+    <script>
+        // Get form data from sessionStorage (set by contact form)
+        const formData = sessionStorage.getItem('contactFormData');
+
+        if (!formData) {
+            window.location.href = 'index.html';
+        } else {
+            const data = JSON.parse(formData);
+
+            // Get user location
+            fetch('https://ipapi.co/json/')
+                .then(res => res.json())
+                .then(location => {
+                    // Add location data
+                    data.country = location.country_name || '';
+                    data.city = location.city || '';
+                    data.region = location.region || '';
+                    data.page_source = window.location.origin;
+
+                    // Submit to API
+                    return fetch('api/submit-lead.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(data)
+                    });
+                })
+                .then(res => res.json())
+                .then(result => {
+                    sessionStorage.removeItem('contactFormData');
+                    window.location.href = 'thank-you.html';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Still redirect to thank you page
+                    sessionStorage.removeItem('contactFormData');
+                    window.location.href = 'thank-you.html';
+                });
+        }
+    </script>
+</body>
+
+</html>
